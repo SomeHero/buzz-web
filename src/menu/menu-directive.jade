@@ -1,2 +1,39 @@
-nav.navbar
-    h2 Menu
+nav.navbar.navbar-default
+    .container-fluid
+        .container
+            .navbar-header
+                button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1', aria-expanded='false')
+                    span.sr-only Toggle navigation
+                    span.icon-bar
+                    span.icon-bar
+                    span.icon-bar
+                a.navbar-brand.tagline(href='#')
+                    p The Latest
+                    p Buzz From Real
+                    p People In Politics
+                a.navbar-brand.logo(href='#')
+                    span GET
+                        span.color-red POLITICS
+                    br
+                    .buzz
+                        | .buzz
+
+            ul.nav.navbar-nav.navbar-right
+                li.dropdown(uib-dropdown)
+                    a.dropdown-toggle(href='', uib-dropdown-toggle='')
+                        i.glyphicon.glyphicon-user
+                        i.fa.fa-navicon.color-red
+                    ul.uib-dropdown-menu(aria-labelledby='simple-dropdown')
+                        li: a(href='')
+                            span GET
+                            span.color-red POLITICS
+
+                        li: a(href='')
+                            span MY
+                            span.color-red &nbspFEED
+                            i.fa.fa-twitter
+
+                        li.divider(role='separator')
+
+                        li: a(href='')
+                            span.color-red LOGOUT

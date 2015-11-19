@@ -54,6 +54,11 @@ All environmental variables storing in .env file in root directory. You should c
 
 ### .env example
 ```
-TWITTER_ID =
-TWITTER_URI =
+TWITTER_ID              = ID
+TWITTER_SECRET          = SECRET
+TWITTER_URI             = URI
+
+FACEBOOK_ID             = ID
+FACEBOOK_SECRET         = SECRET
+FACEBOOK_URI            = URI
 ```

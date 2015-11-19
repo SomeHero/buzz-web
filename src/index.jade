@@ -1,6 +1,6 @@
 doctype html
 
-html(ng-app="buzz-web", ng-scrict-di)
+html(ng-app="buzz-web", ng-scrict-di, ng-cloak)
     head
         title Get Politics
         base(href="/")
@@ -11,7 +11,7 @@ html(ng-app="buzz-web", ng-scrict-di)
         link(href='http://fonts.googleapis.com/css?family=Roboto:400,700', rel='stylesheet', type='text/css')
 
     body(ng-class="$state.current.name|expandState")
-        menu
+        menu(ng-if="$state.current.name != 'login'")
 
         main.container.slide(ui-view)
 

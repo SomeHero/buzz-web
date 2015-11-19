@@ -71,8 +71,16 @@ gulp.task('jade', function() {
             pretty : true,
             locals : {
                 config : {
-                    twitter_id  : process.env.TWITTER_ID,
-                    twitter_uri : process.env.TWITTER_URI
+                    twitter : {
+                        id : process.env.TWITTER_ID,
+                        uri : process.env.TWITTER_URI,
+                        secret : process.env.TWITTER_SECRET
+                    },
+                    facebook : {
+                        id : process.env.FACEBOOK_ID,
+                        uri : process.env.FACEBOOK_URI,
+                        secret : process.env.FACEBOOK_SECRET
+                    }
                 }
             }
         }))
@@ -140,7 +148,7 @@ gulp.task('copy-fonts', function() {
         .src([
             'vendor/bootstrap/fonts/*.*',
             'vendor/font-awesome/fonts/*.*',
-            'src/fonts/*.*'
+            'assets/fonts/*.*'
         ])
         .pipe(gulp.dest('dist/fonts/'))
 });

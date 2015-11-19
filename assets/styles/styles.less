@@ -1,9 +1,8 @@
-// Variables
-@root: "./../..";
-@vendor: "@{root}/vendor";
+@import 'variables.less';
 
 // Fonts
-@import "@{vendor}/font-awesome/less/font-awesome.less";
+@import 'fonts.less';
+@import '@{vendor}/font-awesome/less/font-awesome.less';
 
 // Dependencies
 
@@ -11,4 +10,7 @@
 @import 'common.less';
 
 // Modules
+@import 'modules/login.less';
+@import 'modules/menu.less';
+
 @import 'modules/news.less';

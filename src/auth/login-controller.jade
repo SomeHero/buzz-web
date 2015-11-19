@@ -1,0 +1,33 @@
+.row
+    .col-sm-6.col-sm-offset-3
+        .logo
+            span GET
+                span.color-red POLITICS
+            br
+            .buzz .buzz
+
+        .input-group
+            span.input-group-addon.color-red: i.glyphicon.glyphicon-user
+            input.form-control(type='text', placeholder='enter your username...', ng-model = 'login.username')
+        .input-group
+            span.input-group-addon.color-red: i.glyphicon.glyphicon-lock
+            input.form-control(type='password', placeholder='enter your password...', ng-model = 'login.password')
+
+        btn.btn.btn-default.buzz-in(ng-click='self.login(login)') Buzz Me In
+
+        alert(ng-repeat="alert in self.alerts", type="alert.type", close="self.closeAlert($index)") {{alert.msg}}
+
+        span Not a member yet?
+            span.bold &nbspRegister Below
+
+        hr
+
+        btn.btn.btn-twitter Connect With Twitter
+        btn.btn.btn-facebook Connect With Facebook
+
+        span or Sign Up With Your Email Address
+
+        .input-group
+            span.input-group-addon.color-red: i.glyphicon.glyphicon-envelope
+            input.form-control(type='email', placeholder='enter your email...', ng-model = 'signup.email')
+        btn.btn.btn-default.buzz-up(ng-click='self.signup(signup)') Confirm My Email Address

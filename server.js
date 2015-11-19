@@ -18,6 +18,7 @@ server.use(function(req, res, next){
 server.use(express.static(`${__dirname}/dist`));
 server.get([
     '/',
+    '/login',
     '/news',
     '/news/all',
     '/news/:category',
