@@ -1,0 +1,48 @@
+{
+  "name": "buzz-web",
+  "version": "0.0.1",
+  "description": "",
+  "author": "Andrew Lukichev <andrewlukichev@gmail.com>",
+  "main": "./server.js",
+  "scripts": {
+    "start": "node ./server.js",
+    "postinstall": "./node_modules/bower/bin/bower install && ./node_modules/gulp/bin/gulp.js install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SomeHero/buzz-web"
+  },
+  "dependencies": {
+    "async": "*",
+    "bluebird": "*",
+    "body-parser": "*",
+    "bower": "*",
+    "cookie-parser": "*",
+    "debug": "*",
+    "dotenv": "*",
+    "express": "*",
+    "extend": "*",
+    "gulp": "*",
+    "gulp-babel": "*",
+    "gulp-concat": "*",
+    "gulp-if": "*",
+    "gulp-jade": "*",
+    "gulp-less": "*",
+    "gulp-minify-css": "*",
+    "gulp-rimraf": "*",
+    "gulp-sequence": "*",
+    "gulp-sourcemaps": "*",
+    "gulp-uglify": "*",
+    "gulp-wrap": "*",
+    "jade": "*",
+    "prompt": "*",
+    "sequelize": "*",
+    "serve-favicon": "*",
+    "serve-static": "*",
+    "yargs": "*"
+  },
+  "license": "MIT",
+  "engines": {
+    "iojs": "1.6.*"
+  }
+}

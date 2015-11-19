@@ -1,0 +1,23 @@
+doctype html
+
+html(ng-app="buzz-web", ng-scrict-di)
+    head
+        title Get Politics
+        base(href="/")
+        meta(charset='utf-8')
+        meta(name="viewport",content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0")
+        link(rel="stylesheet", href="/css/bootstrap.css", type="text/css")
+        link(rel="stylesheet", href="/css/styles.css", type="text/css")
+        link(href='http://fonts.googleapis.com/css?family=Roboto:400,700', rel='stylesheet', type='text/css')
+
+    body(ng-class="$state.current.name|expandState")
+        menu
+
+        main.container.slide(ui-view)
+
+        footer.footer-area
+
+        script(type="text/javascript").
+            var CONFIG = !{ JSON.stringify(config) };
+        script(type='text/javascript', src='/js/vendor.js')
+        script(type='text/javascript', src='/js/all.js')

@@ -1,0 +1,23 @@
+{
+  "name": "buzz-web",
+  "version": "0.0.1",
+  "authors": [
+    "Andrew Lukichev <andrewlukichev@gmail.com>"
+  ],
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "*",
+    "angular-animate": "*",
+    "angular-bootstrap": "*",
+    "angular-ui-router": "*",
+    "bootstrap": "*",
+    "font-awesome": "*",
+    "jquery": "*",
+    "moment": "*",
+    "angular-cookies": "~1.4.7"
+  }
+}
