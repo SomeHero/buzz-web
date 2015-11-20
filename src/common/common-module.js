@@ -16,6 +16,6 @@ function configure($stateProvider) {
     frontController.$inject = ['$state'];
     function frontController($state) {
         // TODO: authentication ? newsfeed : login
-        return $state.go("login")
+        return $state.go("auth.login")
     }
 }

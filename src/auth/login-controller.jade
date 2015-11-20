@@ -17,17 +17,5 @@
 
         alert(ng-repeat="alert in self.alerts", type="alert.type", close="self.closeAlert($index)") {{alert.msg}}
 
-        span Not a member yet?
-            span.bold &nbspRegister Below
-
-        hr
-
-        btn.btn.btn-twitter Connect With Twitter
-        btn.btn.btn-facebook Connect With Facebook
-
-        span or Sign Up With Your Email Address
-
-        .input-group
-            span.input-group-addon.color-red: i.glyphicon.glyphicon-envelope
-            input.form-control(type='email', placeholder='enter your email...', ng-model = 'signup.email')
-        btn.btn.btn-default.buzz-up(ng-click='self.signup(signup)') Confirm My Email Address
+        span Not a member yet?&nbsp
+            a.bold(ui-sref='auth.signup') Register

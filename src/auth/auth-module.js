@@ -11,11 +11,21 @@ function configure($httpProvider, $stateProvider) {
     $httpProvider.interceptors.push('httpInterceptors');
 
     $stateProvider
-        .state('login', {
+        .state('auth', {
+            abstract: true,
+            template: '<div ui-view></div>'
+        })
+        .state('auth.login', {
             url: '/login',
             controller : 'LoginController',
             controllerAs : 'self',
             templateUrl : 'auth/login-controller.html'
+        })
+        .state('auth.signup', {
+            url: '/signup',
+            templateUrl : 'auth/signup-controller.html',
+            controller : 'SignupController',
+            controllerAs : 'self'
         })
         .state('oauth_callback', {
             url: '/oauth/facebook?code&?invitation',

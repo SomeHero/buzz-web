@@ -13,6 +13,10 @@ menu {
     border-bottom: 4px solid red;
     padding: 22px;
 
+    .navbar-header {
+      float: left;
+    }
+
     .navbar-brand.tagline {
       padding: 0;
       p {
@@ -22,16 +26,25 @@ menu {
 
     .navbar-brand.logo {
       font-family: berlinSans;
-      font-size: 30px;
+      font-size: 38px;
       padding: 0;
+      position: absolute;
+      width: 100%;
+      left: 0;
+      text-align: center;
+      margin: auto;
       .buzz {
         padding: 2px 7px;
         vertical-align: middle;
-        margin-top: 10px;
+        margin-top: 11px;
       }
     }
 
     .navbar-right {
+      font-family: berlinSans;
+      float: right !important;
+      margin-right: -15px;
+
       .dropdown {
         .dropdown-toggle {
           padding: 10px;
@@ -42,21 +55,24 @@ menu {
             margin-left: 2px;
           }
         }
-        border: 1px solid #ffffff;
+        border: 2px solid #ffffff;
 
         &.open {
-          border: 1px solid black;
+          border: 2px solid black;
           border-radius: 6px 6px 0 0;
         }
       }
       .uib-dropdown-menu {
         border-radius: 6px 0 6px 6px;
-        border: 1px solid black;
-        right: -1px;
+        border: 2px solid black;
+        right: -2px;
+        padding: 0;
 
         li {
-
-
+          &.active a{
+            background: #000000;
+            color: #fff;
+          }
           .fa-twitter {
             background-color: @twitter-color;
             border-radius: 10px;

@@ -4,11 +4,13 @@ var debug = require('debug')('buzz-web:server');
 
 // Libraries
 var express = require('express');
+//var application = require('./app/app.js');
 
 var server = express();
 
 server.set('port', (process.env.PORT || 3000));
 server.set('x-powered-by', false);
+//server.use('/api', application);
 
 server.use(function(req, res, next){
     debug(req.url);
@@ -19,6 +21,7 @@ server.use(express.static(`${__dirname}/dist`));
 server.get([
     '/',
     '/login',
+    '/signup',
     '/news',
     '/news/all',
     '/news/:category',
