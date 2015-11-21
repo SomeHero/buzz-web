@@ -5,9 +5,6 @@ angular
         'buzz-web.auth',
         'buzz-web.menu',
 
-        'buzz-web.news',
-
-        'ui.bootstrap',
-        'ngAnimate'
+        'buzz-web.news'
     ])
     .constant('CONFIG', CONFIG);

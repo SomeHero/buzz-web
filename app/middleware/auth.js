@@ -57,10 +57,6 @@ module.exports = function authenticateMiddlewareGenerator(options) {
                 user = res.locals.user = entity;
                 debug(`auth success for ${user.name}`);
 
-                if (~ ['admin', 'moderator'].indexOf(user.role)) {
-                    return Promise.resolve();
-                }
-
                 return (options.include && (~options.include.indexOf('Profile')))
                     ? models[utils.capitalize(user.role)]
                     .find({ where: { UserId: user.id } })

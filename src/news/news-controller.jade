@@ -1,5 +1,17 @@
-.container
-    .row
-        .col-md-3
-        .col-md-3
-        .col-md-3
+.row.feed
+    .col-md-4.col-sm-6.col-xs-12(ng-repeat="tile in self.news")
+        .tile
+            .main
+                img.thumbnail(src='{{ tile.headline_image_url }}')
+                a.headline(href='{{tile.url}}') {{tile.headline}}
+            .influencer
+                img.thumbnail(src='{{tile.influencer.profile_image_url }}')
+                p.bold {{ tile.influencer.twitter_username }}
+                a.color-red(href="{{'https://twitter.com/'+tile.influencer.handle}}") {{ tile.influencer.handle }}
+                p {{ tile.original_tweet }}
+
+            .footer
+                span {{ tile.created_at | relativeDate }}
+
+    .col-md-12
+        btn.btn.btn-default.btn-more(ng-click='self.log()') MORE BUZZ

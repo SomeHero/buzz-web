@@ -13,11 +13,12 @@
     "angular": "*",
     "angular-animate": "*",
     "angular-bootstrap": "*",
+    "angular-cookies": "~1.4.7",
+    "angular-relative-date": "~1.0.0",
     "angular-ui-router": "*",
     "bootstrap": "*",
     "font-awesome": "*",
     "jquery": "*",
-    "moment": "*",
-    "angular-cookies": "~1.4.7"
+    "moment": "*"
   }
 }

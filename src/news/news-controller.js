@@ -10,8 +10,10 @@ function NewsController($scope, NewsService) {
     NewsService
         .getNews()
         .then(function(result) {
+            self.news = result;
         })
         .catch(function(err) {
+            console.error(err);
         });
 
     self.log = () => { console.log($scope) }

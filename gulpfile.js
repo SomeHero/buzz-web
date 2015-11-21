@@ -30,25 +30,8 @@ var paths = {
         'src/app.js',
 
         // common
-        'src/common/common-module.js',
-        'src/common/*.js',
-
-        // base
-        'src/base/base-module.js',
-        'src/base/**/*.js',
-
-        // auth
-        'src/auth/auth-module.js',
-        'src/auth/**/*.js',
-
-        // news
-        'src/news/news-module.js',
-        'src/news/**/*.js',
-
-        // menu
-        'src/menu/menu-module.js',
-        'src/menu/**/*.js'
-
+        'src/**/*-module.js',
+        'src/**/*.js'
     ],
     libs : [
         'vendor/jquery/dist/jquery.js',
@@ -56,7 +39,8 @@ var paths = {
         'vendor/angular-ui-router/release/angular-ui-router.js',
         'vendor/angular-bootstrap/ui-bootstrap-tpls.js',
         'vendor/angular-animate/angular-animate.js',
-        'vendor/angular-cookies/angular-cookies.js'
+        'vendor/angular-cookies/angular-cookies.js',
+        'vendor/angular-relative-date/angular-relative-date.js'
     ]
 };
 
@@ -112,13 +96,16 @@ gulp.task('less', ['less-app', 'less-bootstrap']);
 //   JS related tasks
 //
 gulp.task('js-app', function() {
+    console.log(babel);
+
     return gulp
         .src(paths.js)
-        .pipe(wrap(" 'use strict';\n\n(function(){\n<%= contents %>\n})();"))
-        //.pipe(babel({ modules : 'common' }))
+        // TODO: WTF
+        .pipe(wrap("\n(function(){\n\"use strict\";\n<%= contents %>\n})();"))
+        .pipe(babel({}))
         .pipe(concat('all.js'))
         .pipe(gulpif(argv.minify, uglify()))
-        .pipe(sourcemaps.write('.'))
+        //.pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('dist/js/'))
 });
 

@@ -12,7 +12,7 @@ nav.navbar.navbar-default
                 .buzz
                     | .buzz
 
-        ul.nav.navbar-nav.navbar-right
+        ul.nav.navbar-right
             li.dropdown(uib-dropdown)
                 a.dropdown-toggle(href='', uib-dropdown-toggle='')
                     i.glyphicon.glyphicon-user
@@ -22,7 +22,7 @@ nav.navbar.navbar-default
                         span GET
                         span.color-red POLITICS
 
-                    li: a(href='')
+                    li(ui-sref-active='active'): a(ui-sref="news.myfeed")
                         span MY
                         span.color-red &nbspFEED
                         i.fa.fa-twitter

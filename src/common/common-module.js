@@ -1,6 +1,9 @@
 angular
     .module('buzz-web.common', [
-        'ui.router'
+        'ui.router',
+        'ui.bootstrap',
+        'ngAnimate',
+        'relativeDate'
     ])
     .config(configure);
 

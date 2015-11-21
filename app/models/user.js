@@ -1,4 +1,4 @@
-var debug = require('debug')('jindy:models:user');
+var debug = require('debug')('bizz-web:models:user');
 
 var fs = require('fs'),
     url = require('url'),

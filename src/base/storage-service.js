@@ -24,6 +24,4 @@ class LocalStorage {
 
 angular
     .module('buzz-web.base')
-    .service('Storage', function() {
-        return new LocalStorage();
-    });
+    .service('Storage', LocalStorage);

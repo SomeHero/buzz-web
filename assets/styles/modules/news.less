@@ -1,4 +1,59 @@
+@import './../variables.less';
 /* ==========================================================================
    News styles
    ========================================================================== */
 
+body.news {
+
+  .tile {
+    border-radius: 5px;
+    background-color: #e5e5e5;
+    box-shadow: -1px 1px 5px 1px #8c8c8c;
+    margin-bottom: 30px;
+    .main {
+      .headline {
+        font-size: 22px;
+        padding: 8px;
+      }
+      .thumbnail {
+        padding: 0;
+        margin-bottom: 0;
+        border: none;
+        overflow: hidden;
+        width: 100%;
+        border-radius: 4px 4px 0 0;
+      }
+    }
+
+    .influencer {
+      padding: 1px 8px;
+      font-family: "Courier New";
+      p {
+        margin: 0 0 1px;
+        font-size: 11px;
+      }
+      .thumbnail {
+        float: left;
+        margin-right: 8px;
+      }
+    }
+
+    .footer {
+      text-align: right;
+      font-size: 10px;
+      font-style: italic;
+      padding: 2px 12px;
+    }
+
+
+  }
+
+  .btn-more {
+    color: @primary-color;
+    border: 2px solid black;
+    border-radius: 0;
+    padding: 11px 16px;
+    font-size: 16px;
+
+  }
+}
