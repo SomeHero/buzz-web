@@ -6,12 +6,11 @@ class NewsService {
         $q = $$q;
     }
 
-    getNews() {
+    getNews(page) {
         return $q(function (resolve, reject) {
             $http
-                .get('http://www.twurl.net/api/v1/twurls')
+                .get(`http://www.twurl.net/api/v1/twurls?page_number=${page ? page : 1}`)
                 .success(function (data) {
-                    console.log(data);
                     resolve(data);
                 })
                 .error(function (err) {

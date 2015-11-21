@@ -36,19 +36,14 @@
     "gulp-wrap": "*",
     "jade": "*",
     "prompt": "*",
-    "redis": "*",
     "sequelize": "*",
     "serve-favicon": "*",
     "serve-static": "*",
-    "then-redis": "*",
     "underscore": "*",
     "yargs": "*"
   },
   "license": "MIT",
   "engines": {
     "iojs": "1.6.*"
-  },
-  "peerDependencies": {
-    "redis": "*"
   }
 }

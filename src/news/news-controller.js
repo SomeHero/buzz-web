@@ -16,5 +16,14 @@ function NewsController($scope, NewsService) {
             console.error(err);
         });
 
-    self.log = () => { console.log($scope) }
+    self.loadMore = () => {
+        NewsService
+            .getNews(self.news.length/10)
+            .then(function(result) {
+                self.news = self.news.concat(result);
+            })
+            .catch(function(err) {
+                console.error(err);
+            });
+    };
 }
