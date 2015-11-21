@@ -22,8 +22,9 @@ server.get([
     '/',
     '/login',
     '/signup',
-    '/news',
-    '/news/all',
+    '/feed',
+    '/feed/all',
+    '/feed/my',
     '/news/:category',
     '/news/:id'
 ], function(req, res) {

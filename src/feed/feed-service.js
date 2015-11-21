@@ -1,6 +1,6 @@
 var $http, $q;
 
-class NewsService {
+class FeedService {
     constructor($$http, $$q) {
         $http = $$http;
         $q = $$q;
@@ -20,8 +20,8 @@ class NewsService {
     }
 }
 
-NewsService.$inject = ['$http', '$q'];
+FeedService.$inject = ['$http', '$q'];
 
 angular
-    .module('buzz-web.news')
-    .service('NewsService', NewsService);
+    .module('buzz-web.feed')
+    .service('FeedService', FeedService);

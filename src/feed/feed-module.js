@@ -1,5 +1,5 @@
 angular
-    .module('buzz-web.news', [
+    .module('buzz-web.feed', [
         'buzz-web.base'
     ])
     .config(configure);
@@ -7,21 +7,21 @@ angular
 configure.$inject = ['$stateProvider'];
 function configure($stateProvider) {
     $stateProvider
-        .state('news', {
+        .state('feed', {
             abstract : true,
-            url : '/news',
+            url : '/feed',
             template : '<div ui-view class="fading"></div>'
         })
-        .state('news.all', {
+        .state('feed.all', {
             url : '/all',
-            templateUrl : 'news/news-controller.html',
-            controller : 'NewsController',
+            templateUrl : 'feed/feed.all.controller.html',
+            controller : 'FeedAllController',
             controllerAs : 'self'
         })
-        .state('news.myfeed', {
-            url : '/myfeed',
-            templateUrl : 'news/myfeed-controller.html',
-            controller : 'MyFeedController',
+        .state('feed.my', {
+            url : '/my',
+            templateUrl : 'feed/feed.my.controller.html',
+            controller : 'FeedMyController',
             controllerAs : 'self'
         })
 }

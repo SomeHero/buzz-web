@@ -5,6 +5,6 @@ angular
         'buzz-web.auth',
         'buzz-web.menu',
 
-        'buzz-web.news'
+        'buzz-web.feed'
     ])
     .constant('CONFIG', CONFIG);

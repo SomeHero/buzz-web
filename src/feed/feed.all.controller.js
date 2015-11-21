@@ -1,13 +1,13 @@
 angular
-    .module('buzz-web.news')
-    .controller('NewsController', NewsController);
+    .module('buzz-web.feed')
+    .controller('FeedAllController', FeedAllController);
 
-NewsController.$inject = ['$scope', 'NewsService'];
+FeedAllController.$inject = ['$scope', 'FeedService'];
 
-function NewsController($scope, NewsService) {
+function FeedAllController($scope, FeedService) {
     var self = this;
 
-    NewsService
+    FeedService
         .getNews()
         .then(function(result) {
             self.news = result;
@@ -17,7 +17,7 @@ function NewsController($scope, NewsService) {
         });
 
     self.loadMore = () => {
-        NewsService
+        FeedService
             .getNews(self.news.length/10)
             .then(function(result) {
                 self.news = self.news.concat(result);
