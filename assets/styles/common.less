@@ -2,6 +2,7 @@
 /* ==========================================================================
    Base styles
    ========================================================================== */
+
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
 }
@@ -94,4 +95,36 @@ textarea {
   vertical-align: text-top;
   text-indent: 0;
   margin-top: -5px;
+}
+
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+.btn {
+  margin: 7px 2px;
+  padding: 9px 50px;
+  font-size: 15px;
+  position: relative;
+  color: #fff;
+  border: none;
+  border-radius: 2px;
+
+  .fa {
+    font-size: 1.5rem;
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 38px;
+    line-height: 38px;
+    text-align: center;
+    border-right: 1px solid rgba(0,0,0,0.2);
+  }
+
+  &.twitter {
+    background: @twitter-color;
+    &:hover {
+      color: #fff;
+      background-color: darken(@twitter-color, 10%);
+    }
+  }
 }

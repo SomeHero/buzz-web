@@ -2,8 +2,8 @@ angular
     .module('buzz-web.common', [
         'ui.router',
         'ui.bootstrap',
-        'ngAnimate',
-        'relativeDate'
+        'relativeDate',
+        'wu.masonry'
     ])
     .config(configure);
 
@@ -18,7 +18,6 @@ function configure($stateProvider) {
 
     frontController.$inject = ['$state'];
     function frontController($state) {
-        // TODO: authentication ? newsfeed : login
-        return $state.go("auth.login")
+        return $state.go("feed.all")
     }
 }

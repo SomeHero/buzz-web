@@ -1,15 +1,13 @@
 angular
     .module('buzz-web.auth', [
         'buzz-web.base',
-        'ngCookies'
+        'satellizer'
     ])
     .config(configure)
     .run(run);
 
-configure.$inject = ['$httpProvider', '$stateProvider'];
-function configure($httpProvider, $stateProvider) {
-    $httpProvider.interceptors.push('httpInterceptors');
-
+configure.$inject = ['$stateProvider', '$authProvider'];
+function configure($stateProvider, $authProvider) {
     $stateProvider
         .state('auth', {
             abstract: true,
@@ -26,32 +24,24 @@ function configure($httpProvider, $stateProvider) {
             templateUrl : 'auth/signup-controller.html',
             controller : 'SignupController',
             controllerAs : 'self'
-        })
-        .state('oauth_callback', {
-            url: '/oauth/facebook?code&?invitation',
-            template : 'Redirecting..',
-            controller : ['$location', '$state', '$stateParams', 'Authentication',
-                function($location, $state, $stateParams, Authentication) {
-                    var state = {};
-                    $location
-                        .search().state
-                        .split(';')
-                        .forEach(function(param) {
-                            param = param.split(':');
-                            state[param[0]] = param[1];
-                        });
-                    Authentication
-                        .oAuthExecute($location.search().code, state.invitation || null)
-                        .then(() => { $location.path(state.returnto); })
-                        .catch((error) => {
-                            console.log(error);
-                        })
-                }]
         });
-        // TODO: twitter oauth
-}
 
-run.$inject = ['Authentication'];
-function run(Authentication) {
-    Authentication.initialize();
+    $authProvider
+        .twitter({
+            url: '/auth/twitter'
+        });
+}
+run.$inject = ['$auth', 'AuthenticationFactory'];
+function run($auth, AuthenticationFactory) {
+    $auth.service = AuthenticationFactory;
+
+    if ($auth.isAuthenticated()) {
+        $auth.service.getProfile()
+            .then(function (user) {
+                $auth.user = user.data;
+            })
+            .catch(function (response) {
+                console.error(response.data.message, response.status);
+            });
+    }
 }

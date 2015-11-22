@@ -16,7 +16,6 @@ var argv = require('yargs').argv,
     concat = require('gulp-concat'),
     rimraf = require('gulp-rimraf'),
     sequence = require('gulp-sequence'),
-    minifyCSS = require('gulp-minify-css'),
     sourcemaps = require('gulp-sourcemaps');
 
 var env = argv.env || process.env.NODE_ENV || 'development';
@@ -30,7 +29,7 @@ var paths = {
         'src/app.js',
 
         // common
-        'src/**/*-module.js',
+        'src/**/*.module.js',
         'src/**/*.js'
     ],
     libs : [
@@ -40,7 +39,26 @@ var paths = {
         'vendor/angular-bootstrap/ui-bootstrap-tpls.js',
         'vendor/angular-animate/angular-animate.js',
         'vendor/angular-cookies/angular-cookies.js',
-        'vendor/angular-relative-date/angular-relative-date.js'
+        'vendor/angular-relative-date/angular-relative-date.js',
+
+        // masonry dep
+        // TODO: find a way to connect masonry without this mess
+        'vendor/jquery-bridget/jquery.bridget.js',
+        'vendor/get-style-property/get-style-property.js',
+        'vendor/get-size/get-size.js',
+        'vendor/eventEmitter/EventEmitter.js',
+        'vendor/eventie/eventie.js',
+        'vendor/doc-ready/doc-ready.js',
+        'vendor/matches-selector/matches-selector.js',
+        'vendor/fizzy-ui-utils/utils.js',
+        'vendor/outlayer/item.js',
+        'vendor/outlayer/outlayer.js',
+        'vendor/masonry/masonry.js',
+        'vendor/imagesloaded/imagesloaded.js',
+        'vendor/angular-masonry/angular-masonry.js',
+        //
+
+        'vendor/satellizer/satellizer.js'
     ]
 };
 
@@ -55,15 +73,10 @@ gulp.task('jade', function() {
             pretty : true,
             locals : {
                 config : {
+                    api_url : process.env.API_URL,
                     twitter : {
-                        id : process.env.TWITTER_ID,
-                        uri : process.env.TWITTER_URI,
-                        secret : process.env.TWITTER_SECRET
-                    },
-                    facebook : {
-                        id : process.env.FACEBOOK_ID,
-                        uri : process.env.FACEBOOK_URI,
-                        secret : process.env.FACEBOOK_SECRET
+                        id : process.env.TWITTER_API_KEY,
+                        uri : process.env.TWITTER_URI
                     }
                 }
             }
@@ -96,16 +109,12 @@ gulp.task('less', ['less-app', 'less-bootstrap']);
 //   JS related tasks
 //
 gulp.task('js-app', function() {
-    console.log(babel);
-
     return gulp
         .src(paths.js)
-        // TODO: WTF
         .pipe(wrap("\n(function(){\n\"use strict\";\n<%= contents %>\n})();"))
         .pipe(babel({}))
         .pipe(concat('all.js'))
         .pipe(gulpif(argv.minify, uglify()))
-        //.pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('dist/js/'))
 });
 
@@ -115,7 +124,6 @@ gulp.task('js-libs', function() {
         .pipe(sourcemaps.init())
         .pipe(concat('vendor.js'))
         .pipe(gulpif(argv.minify, uglify()))
-        .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('dist/js/'));
 });
 
@@ -141,7 +149,8 @@ gulp.task('copy-fonts', function() {
 });
 
 gulp.task('clean', function() {
-    return gulp.src('./dist', { read: false })
+    return gulp
+        .src('./dist', { read: false })
         .pipe(rimraf());
 });
 

@@ -14,9 +14,16 @@ nav.navbar.navbar-default
 
         ul.nav.navbar-right
             li.dropdown(uib-dropdown)
-                a.dropdown-toggle(href='', uib-dropdown-toggle='')
+
+                a.dropdown-toggle(uib-dropdown-toggle, ng-if='self.Auth.isAuthenticated()')
+                    img.picture(ng-src='{{self.Auth.user.picture}}')
+                    span {{ self.Auth.user.displayName }}
+                    span.caret
+
+                a.dropdown-toggle(uib-dropdown-toggle, ng-if='!self.Auth.isAuthenticated()')
                     i.glyphicon.glyphicon-user
-                    i.fa.fa-navicon.color-red
+                    span.caret
+
                 ul.uib-dropdown-menu(aria-labelledby='simple-dropdown')
                     li(ui-sref-active='active'): a(ui-sref="feed.all")
                         span GET
@@ -27,7 +34,7 @@ nav.navbar.navbar-default
                         span.color-red &nbspFEED
                         i.fa.fa-twitter
 
-                    li.divider(role='separator')
+                    li.divider(ng-if='self.Auth.isAuthenticated()')
 
-                    li: a(href='')
+                    li(ng-if='self.Auth.isAuthenticated()'): a(ng-click='self.logout()')
                         span.color-red LOGOUT

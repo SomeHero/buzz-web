@@ -28,7 +28,6 @@
     "gulp-if": "*",
     "gulp-jade": "*",
     "gulp-less": "*",
-    "gulp-minify-css": "*",
     "gulp-rimraf": "*",
     "gulp-sequence": "*",
     "gulp-sourcemaps": "*",
@@ -40,7 +39,17 @@
     "serve-favicon": "*",
     "serve-static": "*",
     "underscore": "*",
-    "yargs": "*"
+    "yargs": "*",
+
+    "kerberos": "0.0.17",
+    "bcryptjs": "^2.3.0",
+    "colors": "^1.1.2",
+    "cors": "^2.7.1",
+    "jwt-simple": "^0.3.1",
+    "moment": "^2.10.6",
+    "mongoose": "^4.2.4",
+    "morgan": "^1.6.1",
+    "request": "^2.65.0"
   },
   "license": "MIT",
   "engines": {

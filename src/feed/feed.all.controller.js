@@ -2,10 +2,11 @@ angular
     .module('buzz-web.feed')
     .controller('FeedAllController', FeedAllController);
 
-FeedAllController.$inject = ['$scope', 'FeedService'];
+FeedAllController.$inject = ['FeedService', '$auth'];
 
-function FeedAllController($scope, FeedService) {
+function FeedAllController(FeedService, $auth) {
     var self = this;
+    this.Auth = $auth;
 
     FeedService
         .getNews()
