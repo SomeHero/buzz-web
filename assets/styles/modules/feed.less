@@ -5,14 +5,18 @@
 
 body.feed {
   .tile {
-    border-radius: 5px;
+    //border-radius: 5px;
     background-color: #e5e5e5;
     box-shadow: -1px 1px 5px 1px #8c8c8c;
     margin-bottom: 30px;
     .main {
+      cursor: pointer;
       .headline {
         font-size: 22px;
         padding: 8px;
+        display: inline-block;
+        color: #000;
+        text-decoration: none;
       }
       .thumbnail {
         padding: 0;
@@ -20,16 +24,24 @@ body.feed {
         border: none;
         overflow: hidden;
         width: 100%;
-        border-radius: 4px 4px 0 0;
+        //border-radius: 4px 4px 0 0;
       }
     }
 
     .influencer {
       padding: 1px 8px;
       font-family: "Courier New";
-      p {
+      p.bold {
         margin: 0 0 1px;
-        font-size: 11px;
+        font-size: 17px;
+      }
+      a {
+        font-style: italic;
+        font-size: 15px;
+      }
+      p {
+        font-size: 12px;
+        letter-spacing: 0;
       }
       .thumbnail {
         float: left;
@@ -44,7 +56,7 @@ body.feed {
       padding: 2px 12px;
     }
 
-
+    &:hover {  box-shadow: -1px 1px 22px 2px #8c8c8c; }
   }
 
   .btn-more {
@@ -58,6 +70,14 @@ body.feed {
   }
 }
 
-body.feed-my .row {
+body.feed-my .connect {
   text-align: center;
+  p {
+    font-family: "Courier New";
+    font-size: 17px;
+  }
+
+  .twitter {
+    margin: 20px;
+  }
 }

@@ -1,9 +1,9 @@
 .row.feed(masonry)
     .col-md-4.col-sm-6.col-xs-12.masonry-brick(ng-repeat="tile in self.news")
         .tile
-            .main
+            .main(ui-sref='article.url({ url : tile.url })')
                 img.thumbnail(src='{{ tile.headline_image_url }}')
-                a.headline(ui-sref='article.url({ url : tile.url })') {{tile.headline}}
+                a.headline {{tile.headline}}
             .influencer
                 img.thumbnail(src='{{tile.influencer.profile_image_url }}')
                 p.bold {{ tile.influencer.twitter_username }}

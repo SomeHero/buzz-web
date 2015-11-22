@@ -1,24 +1,24 @@
-.row(ng-if='!self.Auth.isAuthenticated()')
+.row.connect(ng-if='!self.Auth.isAuthenticated()')
     h1
         | MY
         span.color-red FEED
 
-    p Connect Your Twitter Account to Create Your Personal Newsfeed
+    p.bold Connect Your Twitter Account to Create Your Personal Newsfeed
 
     a.btn.twitter(ng-click="self.authenticate('twitter')")
         i.fa.fa-twitter
         | Connect With Twitter
 
     p Once You've Connected, Any linnks tweeted by the people you follow on twitter Will Appear Here for Easy Scanning and Sharing
-
+    br
     p New Links Are Updated Every 10 minutes
 
 .row.feed(masonry, ng-if='self.Auth.isAuthenticated()')
     .col-md-4.col-sm-6.col-xs-12.masonry-brick(ng-repeat="tile in self.news")
         .tile
-            .main
+            .main(ui-sref='article.url({ url : tile.url })')
                 img.thumbnail(src='{{ tile.headline_image_url }}')
-                a.headline(ui-sref='article.url({ url : tile.url })') {{tile.headline}}
+                a.headline {{tile.headline}}
             .influencer
                 img.thumbnail(src='{{tile.influencer.profile_image_url }}')
                 p.bold {{ tile.influencer.twitter_username }}
