@@ -40,6 +40,7 @@ var paths = {
         'vendor/angular-animate/angular-animate.js',
         'vendor/angular-cookies/angular-cookies.js',
         'vendor/angular-relative-date/angular-relative-date.js',
+        'vendor/angular-aside/dist/js/angular-aside.js',
 
         // masonry dep
         // TODO: find a way to connect masonry without this mess

@@ -1,0 +1,19 @@
+.modal-body.navigation(ng-click='cancel($event)')
+    ul
+        li.user(ng-if='Auth.isAuthenticated()')
+            img.picture(ng-src='{{Auth.user.picture}}')
+            span {{ Auth.user.displayName }}
+
+        li(ui-sref-active='active'): a(ui-sref="feed.all")
+            span GET
+            span.color-red POLITICS
+
+        li(ui-sref-active='active'): a(ui-sref="feed.my")
+            span MY
+            span.color-red &nbspFEED
+            i.fa.fa-twitter
+
+        li.divider(ng-if='Auth.isAuthenticated()')
+
+        li(ng-if='Auth.isAuthenticated()'): a(ng-click='logout()')
+            span.color-red LOGOUT

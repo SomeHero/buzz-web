@@ -13,7 +13,7 @@ nav.navbar.navbar-default
                     | .buzz
 
         ul.nav.navbar-right
-            li.dropdown(uib-dropdown)
+            li.dropdown.hidden-xs(uib-dropdown)
 
                 a.dropdown-toggle(uib-dropdown-toggle, ng-if='self.Auth.isAuthenticated()')
                     img.picture(ng-src='{{self.Auth.user.picture}}')
@@ -38,3 +38,8 @@ nav.navbar.navbar-default
 
                     li(ng-if='self.Auth.isAuthenticated()'): a(ng-click='self.logout()')
                         span.color-red LOGOUT
+
+            button.navbar-toggle.aside-btn.visible-xs(type='button', ng-click="self.openAside('right', true)")
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar

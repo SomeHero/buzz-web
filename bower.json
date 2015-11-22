@@ -15,6 +15,7 @@
     "angular-bootstrap": "*",
     "angular-relative-date": "*",
     "angular-masonry": "*",
+    "angular-aside": "*",
     "angular-ui-router": "*",
     "bootstrap": "*",
     "font-awesome": "*",

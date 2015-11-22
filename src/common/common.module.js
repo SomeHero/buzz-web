@@ -2,6 +2,7 @@ angular
     .module('buzz-web.common', [
         'ui.router',
         'ui.bootstrap',
+        'ngAside',
         'relativeDate',
         'wu.masonry'
     ])
