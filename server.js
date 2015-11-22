@@ -8,7 +8,6 @@ var express = require('express');
 var server = express();
 var path = require('path');
 var qs = require('querystring');
-
 var async = require('async');
 var bcrypt = require('bcryptjs');
 var bodyParser = require('body-parser');
@@ -22,9 +21,9 @@ var request = require('request');
 
 var config = require('./app/config');
 
-
 server.set('port', (process.env.PORT || 3000));
 server.set('x-powered-by', false);
+
 server.use(cors());
 server.use(logger('dev'));
 server.use(bodyParser.json());
@@ -49,13 +48,12 @@ server.get([
 });
 
 server.use(function(req, res, next) {
-    debug(`unresolved url: ${req.headers.host}${req.url}`);
+    debug(`unresolved url: ${req.headers.host}${req.url}`.red);
     next();
 });
 
 server.listen(server.get('port'), function () {
-    debug(`Server listening on port ${server.get('port')}`);
-    console.log(`Server listening on port ${server.get('port')}`);
+    debug(`Server listening on port ${server.get('port')}`.green);
 });
 
 var userSchema = new mongoose.Schema({
@@ -66,6 +64,12 @@ var userSchema = new mongoose.Schema({
     twitter: String
 });
 
+
+/*
+ |--------------------------------------------------------------------------
+ | Mongoo
+ |--------------------------------------------------------------------------
+ */
 userSchema.pre('save', function(next) {
     var user = this;
     if (!user.isModified('password')) {
@@ -87,7 +91,6 @@ userSchema.methods.comparePassword = function(password, done) {
 
 var User = mongoose.model('User', userSchema);
 
-console.log(config.mongo_URI);
 mongoose.connect(config.mongo_URI);
 mongoose.connection.on('error', function(err) {
     console.log('Error: Could not connect to MongoDB. Did you forget to run `mongod`?'.red);
@@ -212,14 +215,11 @@ server.post('/auth/signup', function(req, res) {
  |--------------------------------------------------------------------------
  */
 server.post('/auth/twitter', function(req, res) {
-    console.log('was here');
-
     var requestTokenUrl = 'https://api.twitter.com/oauth/request_token';
     var accessTokenUrl = 'https://api.twitter.com/oauth/access_token';
     var profileUrl = 'https://api.twitter.com/1.1/users/show.json?screen_name=';
 
     // Part 1 of 2: Initial request from Satellizer.
-    console.log(req.body);
     if (!req.body.oauth_token || !req.body.oauth_verifier) {
         var requestTokenOauth = {
             consumer_key: config.twitter.client_id,

@@ -19,6 +19,7 @@
     "bootstrap": "*",
     "font-awesome": "*",
     "jquery": "*",
-    "moment": "*"
+    "moment": "*",
+    "satellizer": "~0.13.1"
   }
 }
