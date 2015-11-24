@@ -9,7 +9,7 @@ function FeedAllController(FeedService, $auth, toastr) {
     this.Auth = $auth;
 
     FeedService
-        .getNews()
+        .getFeed()
         .then(function(result) {
             self.news = result;
         })

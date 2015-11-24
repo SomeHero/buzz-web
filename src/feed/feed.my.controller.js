@@ -9,13 +9,23 @@ function FeedMyController(FeedService, $auth, toastr) {
     this.Auth = $auth;
 
     FeedService
-        .getNews()
+        .getFeed()
         .then(function(result) {
             self.news = result;
         })
         .catch(function(err) {
             console.error(err);
         });
+
+    //FeedService
+    //    .getMyFeed()
+    //    .then(function(result) {
+    //        self.news = result;
+    //    })
+    //    .catch(function(err) {
+    //        console.error(err);
+    //        toastr.error(err, 'Error');
+    //    });
 
     self.loadMore = () => {
         FeedService
