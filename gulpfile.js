@@ -41,6 +41,7 @@ var paths = {
         'vendor/angular-cookies/angular-cookies.js',
         'vendor/angular-relative-date/angular-relative-date.js',
         'vendor/angular-aside/dist/js/angular-aside.js',
+        'vendor/angular-toastr/dist/angular-toastr.tpls.js',
 
         // masonry dep
         // TODO: find a way to connect masonry without this mess

@@ -21,6 +21,7 @@
     "font-awesome": "*",
     "jquery": "*",
     "moment": "*",
-    "satellizer": "~0.13.1"
+    "satellizer": "~0.13.1",
+    "angular-toastr": "~1.6.0"
   }
 }

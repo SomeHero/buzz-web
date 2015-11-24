@@ -10,21 +10,27 @@ function MenuDirective() {
     }
 }
 
-MenuDirectiveController.$inject = ['$auth', '$aside'];
+MenuDirectiveController.$inject = ['$auth', '$aside', 'toastr', '$timeout'];
 
-function MenuDirectiveController($auth, $aside) {
+function MenuDirectiveController($auth, $aside, toastr, $timeout) {
     var self = this;
     this.Auth = $auth;
 
     this.logout = function () {
         $auth.logout()
             .then(function() {
-                console.log('logout');
+                toastr.success('Logged out!', 'Success');
             })
-            .catch(function(response) {
-                console.log(response.data.message, response.status);
+            .catch(function(err) {
+                console.error(err);
+                toastr.error(err, 'Error');
             });
     };
+
+    $timeout (function(){
+        toastr.success('Logged out!', 'Success');
+    }, 3000);
+
 
     self.asideState = {
         open: false
@@ -41,19 +47,19 @@ function MenuDirectiveController($auth, $aside) {
         }
 
         $aside.open({
-            templateUrl: 'menu/aside/right.html',
+            templateUrl: `menu/aside/${position}.html`,
             placement: position,
-            size: 'sm',
             backdrop: backdrop,
             controller: function($scope, $uibModalInstance, $auth) {
                 $scope.Auth = $auth;
                 $scope.logout = function () {
                     $auth.logout()
                         .then(function() {
-                            console.log('logout');
+                            toastr.success('Logged out!', 'Success');
                         })
-                        .catch(function(response) {
-                            console.log(response.data.message, response.status);
+                        .catch(function(err) {
+                            console.error(err);
+                            toastr.error(err, 'Error');
                         });
                 };
 
@@ -62,8 +68,7 @@ function MenuDirectiveController($auth, $aside) {
                     e.stopPropagation();
                 };
 
-            },
-            controllerAs: 'modal'
+            }
         }).result.then(postClose, postClose);
     }
 }
