@@ -1,2 +1,16 @@
-h3 Article
-    iframe(src='', height='100%', width='100%')
+.sidebar
+    i.fa.fa-times-circle(ui-sref='{{self.article.return}}', title='Close')
+    a.fa.fa-external-link-square(href='{{self.url}}', target="_blank", title='Open in new tab')
+
+    i.fa.fa-facebook-official(ng-click='')
+    i.fa.fa-twitter-square(ng-click='')
+    i.fa.fa-envelope-square(ng-click='')
+    i.fa.fa-phone-square(ng-click='')
+
+    .logo(ui-sref='front')
+        span GET
+            span.color-red POLITICS
+        .buzz
+            | .buzz
+.frame
+    iframe(src="{{self.url}}", resize)

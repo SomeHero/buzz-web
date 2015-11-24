@@ -1,9 +1,45 @@
-@media (max-width: 768px) {
-  .navbar-header {
-    width: 100%;
+@import 'variables.less';
+
+/* ==========================================================================
+   X-Small screens
+   ========================================================================== */
+@media only screen and (max-width: @screen-xs) {
+}
+
+/* ==========================================================================
+   Small screens
+   ========================================================================== */
+@media only screen and (max-width: @screen-sm) {
+  menu {
+    .navbar {
+      .navbar-header {
+        width: 100%;
+        .navbar-brand.logo {
+          margin-left: 15px;
+          width: auto;
+        }
+      }
+      .navbar-right {
+        .dropdown {
+          margin-top: 75px;
+          float: right;
+        }
+        .aside-btn {
+          margin: 6px -25px 6px 0;
+        }
+      }
+    }
   }
-  .navbar-right .dropdown {
-    margin-top: 75px;
-    float: right;
-  }
+}
+
+/* ==========================================================================
+   Medium screens
+   ========================================================================== */
+@media only screen and (max-width: @screen-md) {
+}
+
+/* ==========================================================================
+   Large screens
+   ========================================================================== */
+@media only screen and (max-width: @screen-lg) {
 }

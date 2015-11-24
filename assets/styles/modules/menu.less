@@ -1,8 +1,8 @@
 @import './../variables.less';
+
 /* ==========================================================================
    Menu styles
    ========================================================================== */
-
 menu {
   padding: 0;
   margin: 0;
@@ -12,36 +12,24 @@ menu {
     border-radius: 0;
     border-bottom: 4px solid red;
     padding: 22px;
-    font-family: berlinSans;
+    font-family: oswald;
 
     .navbar-brand {
       padding: 0;
-
       &.tagline {
-        font-family: oswald;
+        margin: 0;
         p { margin: 0 0; }
       }
-
       &.logo {
-        cursor: pointer;
         font-size: 38px;
-        position: absolute;
-        width: 60%;
+        width: 50%;
         left: 0;
-        text-align: center;
-        margin: 0 20%;
+        margin: 0 25%;
         .buzz {
           padding: 2px 7px;
           margin-top: 11px;
           border-radius: 7px;
-          border: 2px solid #5e5e5e;
-          background-color: #000;
-          color: #fff;
           font-size: 20px;
-          -webkit-transform: rotate(-7deg);
-          -moz-transform: rotate(-15deg);
-          -o-transform: rotate(-15deg);
-          display: inline-block;
         }
       }
       &:hover { color: #777; }
@@ -71,12 +59,6 @@ menu {
       }
     }
 
-    .navbar-right {
-      .aside-btn {
-        margin: 6px 0;
-      }
-    }
-
     .uib-dropdown-menu {
       border-radius: 6px 0 6px 6px;
       padding: 0;
@@ -102,6 +84,4 @@ menu {
       }
     }
   }
-
-
 }

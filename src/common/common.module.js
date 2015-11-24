@@ -3,9 +3,9 @@ angular
         'ui.router',
         'ui.bootstrap',
         'ngAside',
+        'toastr',
         'relativeDate',
-        'wu.masonry',
-        'toastr'
+        'wu.masonry'
     ])
     .config(configure);
 
@@ -15,14 +15,10 @@ function configure($stateProvider, toastrConfig) {
         .state('front', {
             url : '/',
             template: '',
-            controller : frontController
+            controller : function($state){
+                return $state.go('feed.all')
+            }
         });
-
-    frontController.$inject = ['$state'];
-
-    function frontController($state) {
-        return $state.go("feed.all")
-    }
 
     angular.extend(toastrConfig, {
         autoDismiss: false,

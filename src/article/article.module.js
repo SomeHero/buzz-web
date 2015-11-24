@@ -12,14 +12,14 @@ function configure($stateProvider) {
             url : '/article',
             template : '<div ui-view class="fading"></div>'
         })
-        .state('article.url', {
-            url : '/:url',
+        .state('article.id', {
+            url : '/:id?url?return',
             templateUrl : 'article/article.controller.html',
             controller : 'ArticleController',
             controllerAs : 'self',
             resolve : {
-                url: [ '$stateParams', function($stateParams) {
-                    return $stateParams.url;
+                article: [ '$stateParams', function($stateParams) {
+                    return $stateParams;
                 }]
             }
         })

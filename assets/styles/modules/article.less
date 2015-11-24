@@ -1,0 +1,83 @@
+@import './../variables.less';
+
+body.article {
+  main.container {
+    padding: 0;
+    margin: 0;
+  }
+  .sidebar {
+    background-color: #fafafa;
+    box-shadow: 0 0 20px 0 #5e5e5e;
+    display: block;
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 100px !important;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    text-align: center;
+    .fa {
+      font-size: 90px;
+      margin: 15px 0;
+      color: #5e5e5e;
+      cursor: pointer;
+      text-decoration: none;
+      &.fa-times-circle, &.fa-external-link-square {
+        &:hover {
+          color: darken(#5e5e5e, 15%);
+        }
+      }
+      &.fa-twitter-square {
+        color: @twitter-color;
+        &:hover {
+          color: darken(@twitter-color, 15%)
+        }
+      }
+      &.fa-facebook-official {
+        color: @facebook-color;
+        &:hover {
+          color: darken(@facebook-color, 15%)
+        }
+      }
+      &.fa-envelope-square{
+        color: @primary-color;
+        &:hover {
+          color: darken(@primary-color, 15%)
+        }
+      }
+      &.fa-phone-square{
+        color: #00a859;
+        &:hover {
+          color: darken(#00a859, 10%)
+        }
+      }
+    }
+
+    .logo {
+      font-size: 16px;
+      bottom: 12px;
+      width: 100%;
+      .buzz {
+        padding: 0 5px;
+        margin-top: 1px;
+        border-radius: 3px;
+        font-size: 12px;
+      }
+    }
+
+  }
+
+  .frame {
+    padding-left: 95px;
+    display: block;
+    iframe {
+      border: none;
+    }
+  }
+
+}

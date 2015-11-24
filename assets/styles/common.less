@@ -1,8 +1,8 @@
 @import 'variables.less';
+
 /* ==========================================================================
    Base styles
    ========================================================================== */
-
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
 }
@@ -81,6 +81,25 @@ textarea {
 
 .toast-top-right {
   top: auto;
+}
+
+/* ==========================================================================
+   Logo
+   ========================================================================== */
+.logo {
+  font-family: berlinSans;
+  cursor: pointer;
+  position: absolute;
+  text-align: center;
+  .buzz {
+    background-color: #000;
+    color: #fff;
+    -webkit-transform: rotate(-7deg);
+    -moz-transform: rotate(-15deg);
+    -o-transform: rotate(-15deg);
+    display: inline-block;
+    border: 1px solid #c9c9c9;
+  }
 }
 
 /* ==========================================================================

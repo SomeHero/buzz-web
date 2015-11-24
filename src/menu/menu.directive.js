@@ -10,9 +10,9 @@ function MenuDirective() {
     }
 }
 
-MenuDirectiveController.$inject = ['$auth', '$aside', 'toastr', '$timeout'];
+MenuDirectiveController.$inject = ['$auth', '$aside', 'toastr'];
 
-function MenuDirectiveController($auth, $aside, toastr, $timeout) {
+function MenuDirectiveController($auth, $aside, toastr) {
     var self = this;
     this.Auth = $auth;
 
@@ -26,11 +26,6 @@ function MenuDirectiveController($auth, $aside, toastr, $timeout) {
                 toastr.error(err, 'Error');
             });
     };
-
-    $timeout (function(){
-        toastr.success('Logged out!', 'Success');
-    }, 3000);
-
 
     self.asideState = {
         open: false

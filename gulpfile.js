@@ -42,9 +42,6 @@ var paths = {
         'vendor/angular-relative-date/angular-relative-date.js',
         'vendor/angular-aside/dist/js/angular-aside.js',
         'vendor/angular-toastr/dist/angular-toastr.tpls.js',
-
-        // masonry dep
-        // TODO: find a way to connect masonry without this mess
         'vendor/jquery-bridget/jquery.bridget.js',
         'vendor/get-style-property/get-style-property.js',
         'vendor/get-size/get-size.js',
@@ -58,8 +55,6 @@ var paths = {
         'vendor/masonry/masonry.js',
         'vendor/imagesloaded/imagesloaded.js',
         'vendor/angular-masonry/angular-masonry.js',
-        //
-
         'vendor/satellizer/satellizer.js'
     ]
 };
@@ -113,7 +108,7 @@ gulp.task('less', ['less-app', 'less-bootstrap']);
 gulp.task('js-app', function() {
     return gulp
         .src(paths.js)
-        .pipe(wrap("\n(function(){\n\"use strict\";\n<%= contents %>\n})();"))
+        .pipe(wrap("\n(function(){\n<%= contents %>\n})();"))
         .pipe(babel({}))
         .pipe(concat('all.js'))
         .pipe(gulpif(argv.minify, uglify()))
