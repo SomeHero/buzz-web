@@ -9,5 +9,5 @@ class CommonService {
 CommonService.$inject = [];
 
 angular
-    .module('buzz-web.common')
+    .module('buzz-web.base')
     .service('CommonService', CommonService);

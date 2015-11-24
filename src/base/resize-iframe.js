@@ -1,5 +1,5 @@
 angular
-    .module('buzz-web.common')
+    .module('buzz-web.base')
     .directive('resize', resize);
 
 function resize() {
