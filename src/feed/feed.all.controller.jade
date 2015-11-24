@@ -2,12 +2,12 @@
     .col-md-4.col-sm-6.col-xs-12.masonry-brick(ng-repeat="tile in self.news")
         .tile
             .main(ui-sref='article.id({ url : tile.url })')
-                img.thumbnail(src='{{ tile.headline_image_url }}')
+                img.thumbnail(ng-src='{{ tile.headline_image_url }}')
                 a.headline {{tile.headline}}
             .influencer
-                img.thumbnail(src='{{tile.influencer.profile_image_url }}')
+                img.thumbnail(ng-src='{{ tile.influencer.profile_image_url }}')
                 p.bold {{ tile.influencer.twitter_username }}
-                a.color-red(href="{{'https://twitter.com/'+tile.influencer.handle}}") {{ tile.influencer.handle }}
+                a.color-red(href="{{ 'https://twitter.com/'+tile.influencer.handle }}") {{ tile.influencer.handle }}
                 p {{ tile.original_tweet }}
 
             .footer
