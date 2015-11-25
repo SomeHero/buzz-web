@@ -2,19 +2,38 @@ angular
     .module('buzz-web.base')
     .directive('resize', resize);
 
-function resize() {
+function resize($timeout) {
     return function (scope, element) {
         var resizing = function() {
             var height = window.innerHeight;
             var width = window.innerWidth;
+            var paddingTop = 0,
+                paddingLeft = 0;
 
-            element.css('height', height-10 + 'px');
-            element.css('width', width-95 + 'px')
+            if (width < 769) {
+                paddingTop = $('.sidebar').height();
+            }
+            if (width >= 769) {
+                paddingLeft = 100;
+            }
+
+            $('.frame')
+                .css("padding-top", `${paddingTop}px`)
+                .css("padding-left", `${paddingLeft}px`);
+
+            element
+                .css('height', (height - paddingTop)-5 + 'px')
+                .css('width', (width-paddingLeft) + 'px');
         };
 
         angular.element(window).bind('resize', function () {
             resizing();
         });
+
+        $timeout(function(){
+            resizing();
+        }, 0);
+
         resizing();
     }
 }
