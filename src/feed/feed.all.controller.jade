@@ -1,7 +1,7 @@
 .row.feed(masonry="{ transitionDuration: '0.2s' }", ng-cloak)
     .col-md-4.col-sm-6.col-xs-12.masonry-brick(ng-repeat="tile in self.feed")
         .tile
-            .main(ui-sref="article.id({ id : tile.id, url : tile.url, return : 'feed.my' })")
+            .main(ui-sref="article.id({ id : tile.id, url : tile.url, return : 'feed.all' })")
                 img.thumbnail(ng-src='{{ tile.headline_image_url }}')
                 a.headline {{tile.headline}}
             .influencer
