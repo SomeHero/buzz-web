@@ -1,4 +1,4 @@
-.row.connect(ng-if='!self.Auth.isAuthenticated()')
+.row.connect(ng-if='!self.Authentication.provider.isAuthenticated()')
     h1
         | MY
         span.color-red FEED
@@ -9,12 +9,12 @@
         i.fa.fa-twitter
         | Connect With Twitter
 
-    p Once You've Connected, Any linnks tweeted by the people you follow on twitter Will Appear Here for Easy Scanning and Sharing
+    p Once You've Connected, Any links tweeted by the people you follow on twitter Will Appear Here for Easy Scanning and Sharing
     br
     p New Links Are Updated Every 10 minutes
 
-.row.feed(masonry, ng-if='self.Auth.isAuthenticated()')
-    .col-md-4.col-sm-6.col-xs-12.masonry-brick(ng-repeat="tile in self.news")
+.row.feed(masonry, ng-if='self.Authentication.provider.isAuthenticated()', masonry-options="{ transitionDuration: '0.2s' }")
+    .col-md-4.col-sm-6.col-xs-12.masonry-brick(ng-repeat="tile in self.feed")
         .tile
             .main(ui-sref="article.id({ id : tile.id, url : tile.url, return : 'feed.my' })")
                 img.thumbnail(ng-src='{{ tile.headline_image_url }}')
@@ -28,5 +28,5 @@
             .footer
                 span {{ tile.created_at | relativeDate }}
 
-.col-md-2.col-md-offset-5(ng-if='self.Auth.isAuthenticated()')
-    btn.btn.btn-default.btn-more(ng-click='self.loadMore()') MORE BUZZ
+.col-md-2.col-md-offset-5(ng-if='self.Authentication.provider.isAuthenticated()')
+    btn.btn.btn-default.btn-more(ng-click='self.loadFeed(self.feed.length/10, self.user.id)') MORE BUZZ

@@ -70,11 +70,7 @@ gulp.task('jade', function() {
             pretty : true,
             locals : {
                 config : {
-                    api_url : process.env.API_URL,
-                    twitter : {
-                        id : process.env.TWITTER_API_KEY,
-                        uri : process.env.TWITTER_URI
-                    }
+                    api_url : process.env.API_URL
                 }
             }
         }))

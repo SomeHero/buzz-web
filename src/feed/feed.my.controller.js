@@ -6,48 +6,40 @@ FeedMyController.$inject = ['FeedService', '$auth', 'toastr'];
 
 function FeedMyController(FeedService, $auth, toastr) {
     var self = this;
-    this.Auth = $auth;
+    this.Authentication = $auth;
+    this.user = self.Authentication.provider.user;
 
-    FeedService
-        .getFeed()
-        .then(function(result) {
-            self.news = result;
-        })
-        .catch(function(err) {
-            console.error(err);
-        });
+    this.feed = [];
 
-    //FeedService
-    //    .getMyFeed()
-    //    .then(function(result) {
-    //        self.news = result;
-    //    })
-    //    .catch(function(err) {
-    //        console.error(err);
-    //        toastr.error(err, 'Error');
-    //    });
-
-    self.loadMore = () => {
+    self.loadFeed = (page, user_id) => {
+        page = Math.ceil(page);
         FeedService
-            .getNews(self.news.length/10)
+            .getFeed(page, user_id)
             .then(function(result) {
-                self.news = self.news.concat(result);
+                page == 1 ? self.feed = result
+                          : self.feed = self.feed.concat(result);
             })
             .catch(function(err) {
                 console.error(err);
+                toastr.error(err, 'Error');
             });
     };
 
-    this.authenticate = function(provider) {
+    if (self.Authentication.provider.isAuthenticated()) {
+        self.loadFeed(1, self.user.id);
+    }
+
+    this.authenticate = (provider) => {
         $auth.authenticate(provider)
-            .then(function() {
-                toastr.success('Logged in!', 'Success');
-                return $auth.service.getProfile()
-            })
-            .then(function (user) {
-                $auth.user = user.data;
+            .then(function(result) {
+                var user = JSON.parse(result.data);
+                self.Authentication.provider.setUser(user);
+
+                self.loadFeed(1, user.id);
+                toastr.success(`Welcome, ${user.first_name}`, 'Success');
             })
             .catch(function(err) {
+                console.error(err);
                 toastr.error(err, 'Error');
             });
     };

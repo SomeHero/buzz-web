@@ -1,4 +1,4 @@
-var $http, $q, $CONFIG;
+var $http, $q, CONFIG;
 
 class FeedService {
     constructor($$http, $$q, $CONFIG) {
@@ -7,28 +7,20 @@ class FeedService {
         CONFIG = $CONFIG;
     }
 
-    getFeed(page) {
-        return $q(function (resolve, reject) {
-            $http
-                .get(`${CONFIG.api_url}/api/v1/twurls?page_number=${page ? page : 1}`)
-                .success(function (data) {
-                    resolve(data);
-                })
-                .error(function (err) {
-                    console.error(err);
-                });
-        });
-    }
+    getFeed(page, user_id) {
+        var url;
+        user_id == undefined ? url = `${CONFIG.api_url}/api/v1/twurls?page_number=${page ? page : 1}`
+                             : url = `${CONFIG.api_url}/api/v1/users/${user_id}/feeds?page_number=${page ? page : 1}`;
 
-    getMyFeed(user_id) {
         return $q(function (resolve, reject) {
             $http
-                .get(`${CONFIG.api_url}/api/v1/users/${user_id}/feeds`)
+                .get(url)
                 .success(function (data) {
                     resolve(data);
                 })
                 .error(function (err) {
                     console.error(err);
+                    reject(err)
                 });
         });
     }

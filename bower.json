@@ -11,17 +11,18 @@
   "private": true,
   "dependencies": {
     "angular": "*",
+    "angular-toastr": "*",
     "angular-animate": "*",
     "angular-bootstrap": "*",
     "angular-relative-date": "*",
     "angular-masonry": "*",
     "angular-aside": "*",
     "angular-ui-router": "*",
+    "ngstorage": "*",
     "bootstrap": "*",
     "font-awesome": "*",
     "jquery": "*",
     "moment": "*",
     "satellizer": "~0.13.1",
-    "angular-toastr": "~1.6.0"
   }
 }

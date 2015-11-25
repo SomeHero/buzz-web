@@ -31,17 +31,7 @@ function configure($stateProvider, $authProvider) {
             url: '/auth/twitter'
         });
 }
-run.$inject = ['$auth', 'AuthenticationFactory'];
-function run($auth, AuthenticationFactory) {
-    $auth.service = AuthenticationFactory;
-
-    if ($auth.isAuthenticated()) {
-        $auth.service.getProfile()
-            .then(function (user) {
-                $auth.user = user.data;
-            })
-            .catch(function (response) {
-                console.error(response.data.message, response.status);
-            });
-    }
+run.$inject = ['$auth', 'Authentication'];
+function run($auth, Authentication) {
+    $auth.provider.initialize();
 }

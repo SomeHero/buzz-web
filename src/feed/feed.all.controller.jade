@@ -1,7 +1,7 @@
-.row.feed(masonry)
-    .col-md-4.col-sm-6.col-xs-12.masonry-brick(ng-repeat="tile in self.news")
+.row.feed(masonry="{ transitionDuration: '0.2s' }", ng-cloak)
+    .col-md-4.col-sm-6.col-xs-12.masonry-brick(ng-repeat="tile in self.feed")
         .tile
-            .main(ui-sref='article.id({ url : tile.url })')
+            .main(ui-sref="article.id({ id : tile.id, url : tile.url, return : 'feed.my' })")
                 img.thumbnail(ng-src='{{ tile.headline_image_url }}')
                 a.headline {{tile.headline}}
             .influencer
@@ -14,4 +14,4 @@
                 span {{ tile.created_at | relativeDate }}
 
 .col-md-2.col-md-offset-5
-    btn.btn.btn-default.btn-more(ng-click='self.loadMore()') MORE BUZZ
+    btn.btn.btn-default.btn-more(ng-click='self.loadFeed(self.feed.length/10)') MORE BUZZ

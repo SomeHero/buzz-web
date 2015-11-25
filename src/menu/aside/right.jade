@@ -1,8 +1,7 @@
 .modal-body.navigation(ng-click='cancel($event)')
     ul
-        li.user(ng-if='Auth.isAuthenticated()')
-            img.picture(ng-src='{{Auth.user.picture}}')
-            span {{ Auth.user.displayName }}
+        li.user(ng-if='Authentication.provider.isAuthenticated()')
+            span {{ Authentication.provider.user.twitter_username }}
 
         li(ui-sref-active='active'): a(ui-sref="feed.all")
             span GET
@@ -13,7 +12,7 @@
             span.color-red &nbspFEED
             i.fa.fa-twitter
 
-        li.divider(ng-if='Auth.isAuthenticated()')
+        li.divider(ng-if='Authentication.provider.isAuthenticated()')
 
-        li(ng-if='Auth.isAuthenticated()'): a(ng-click='logout()')
+        li(ng-if='Authentication.provider.isAuthenticated()'): a(ng-click='logout()')
             span.color-red LOGOUT

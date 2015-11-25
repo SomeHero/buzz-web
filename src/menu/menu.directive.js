@@ -14,12 +14,13 @@ MenuDirectiveController.$inject = ['$auth', '$aside', 'toastr'];
 
 function MenuDirectiveController($auth, $aside, toastr) {
     var self = this;
-    this.Auth = $auth;
+    this.Authentication = $auth;
+    this.user = self.Authentication.provider.user;
 
     this.logout = function () {
-        $auth.logout()
+        self.Authentication.provider.logout()
             .then(function() {
-                toastr.success('Logged out!', 'Success');
+                toastr.warning('Logged out!', 'Success');
             })
             .catch(function(err) {
                 console.error(err);
@@ -46,11 +47,11 @@ function MenuDirectiveController($auth, $aside, toastr) {
             placement: position,
             backdrop: backdrop,
             controller: function($scope, $uibModalInstance, $auth) {
-                $scope.Auth = $auth;
+                $scope.Authentication = $auth;
                 $scope.logout = function () {
-                    $auth.logout()
+                    $scope.Authentication.provider.logout()
                         .then(function() {
-                            toastr.success('Logged out!', 'Success');
+                            toastr.warning('Logged out!', 'Success');
                         })
                         .catch(function(err) {
                             console.error(err);

@@ -15,12 +15,11 @@ nav.navbar.navbar-default
         ul.nav.navbar-right
             li.dropdown.hidden-xs(uib-dropdown)
 
-                a.dropdown-toggle(uib-dropdown-toggle, ng-if='self.Auth.isAuthenticated()')
-                    img.picture(ng-src='{{self.Auth.user.picture}}')
-                    span {{ self.Auth.user.displayName }}
+                a.dropdown-toggle(uib-dropdown-toggle, ng-if='self.Authentication.provider.isAuthenticated()')
+                    span {{ self.Authentication.provider.user.twitter_username }}
                     span.caret
 
-                a.dropdown-toggle(uib-dropdown-toggle, ng-if='!self.Auth.isAuthenticated()')
+                a.dropdown-toggle(uib-dropdown-toggle, ng-if='!self.Authentication.provider.isAuthenticated()')
                     i.glyphicon.glyphicon-user
                     span.caret
 
@@ -34,9 +33,9 @@ nav.navbar.navbar-default
                         span.color-red &nbspFEED
                         i.fa.fa-twitter
 
-                    li.divider(ng-if='self.Auth.isAuthenticated()')
+                    li.divider(ng-if='self.Authentication.provider.isAuthenticated()')
 
-                    li(ng-if='self.Auth.isAuthenticated()'): a(ng-click='self.logout()')
+                    li(ng-if='self.Authentication.provider.isAuthenticated()'): a(ng-click='self.logout()')
                         span.color-red LOGOUT
 
             button.navbar-toggle.aside-btn.visible-xs(type='button', ng-click="self.openAside('right', true)")
