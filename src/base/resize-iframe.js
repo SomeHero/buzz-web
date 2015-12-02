@@ -26,14 +26,12 @@ function resize($timeout) {
                 .css('width', (width-paddingLeft) + 'px');
         };
 
-        angular.element(window).bind('resize', function () {
-            resizing();
-        });
-
         $timeout(function(){
             resizing();
         }, 0);
 
-        resizing();
+        angular.element(window).bind('resize', function () {
+            resizing();
+        });
     }
 }

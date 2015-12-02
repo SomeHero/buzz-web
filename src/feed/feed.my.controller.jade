@@ -13,11 +13,12 @@
     br
     p New Links Are Updated Every 10 minutes
 
-.row.feed(masonry, ng-if='self.Authentication.provider.isAuthenticated()', masonry-options="{ transitionDuration: '0' }")
+.row.feed(masonry, ng-if='self.Authentication.provider.isAuthenticated()', masonry-options="{ transitionDuration: '0.1s' }")
     .col-md-4.col-sm-6.col-xs-12.masonry-brick(ng-repeat="tile in self.feed")
-        .tile(ng-if="tile.type=='news'")
+        .tile(ng-if="!tile.type")
             .main(ui-sref="article.id({ id : tile.id, url : tile.url, return : 'feed.my' })")
-                img.thumbnail(ng-src='{{ tile.headline_image_url }}')
+                img.thumbnail(ng-src='{{ tile.headline_image_url }}', set-size, height='{{tile.headline_image_height}}',
+                                                                                width='{{tile.headline_image_width}}')
                 a.headline {{tile.headline}}
             .influencer
                 img.thumbnail(ng-src='{{ tile.influencer.profile_image_url }}')
