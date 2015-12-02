@@ -5,7 +5,8 @@
    ========================================================================== */
 menu {
   padding: 0;
-  margin: 0;
+  height: 100px;
+  margin: 0 0 12px 0;
 
   .navbar {
     border: 0;
@@ -50,14 +51,16 @@ menu {
     }
 
     .uib-dropdown-menu {
-      border-radius: 6px 0 6px 6px;
+      border-radius: 0;
       padding: 0;
 
       li {
         a {
+          transition: ease-out 0.15s;
           &:hover {
             background-color: #D7D7D7;
             cursor: pointer;
+            transition: ease-out 0.15s;
           }
         }
         &.active a{
