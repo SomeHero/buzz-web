@@ -2,8 +2,37 @@
     i.fa.fa-times-circle(ui-sref='{{self.article.return}}', title='Close')
     a.fa.fa-external-link-square(href='{{self.url}}', target="_blank", title='Open in new tab')
 
-    i.fa.fa-facebook-official(ng-click='')
-    i.fa.fa-twitter-square(ng-click='')
+    #fb-root
+    script.
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5&appId=1437360259913013";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+    a.fa.fa-facebook-official(href='http://www.facebook.com/share.php?u=http://get-politics.herokuapp.com/{{self.location.$$url}}&title=GET-POLITICS',
+                              onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;")
+
+    script.
+        window.twttr = (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0],
+                    t = window.twttr || {};
+            if (d.getElementById(id)) return t;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://platform.twitter.com/widgets.js";
+            fjs.parentNode.insertBefore(js, fjs);
+            t._e = [];
+            t.ready = function(f) {
+                t._e.push(f);
+            };
+            return t;
+        }(document, "script", "twitter-wjs"));
+    a.fa.fa-twitter-square(ng-href='https://twitter.com/intent/tweet?text={{self.location.$$url}}')
+
     i.fa.fa-envelope-square(ng-click='')
     i.fa.fa-phone-square(ng-click='')
 
