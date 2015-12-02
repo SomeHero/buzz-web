@@ -1,6 +1,6 @@
-.row.feed(masonry="{ transitionDuration: '0.2s' }", ng-cloak)
+.row.feed(masonry="{ transitionDuration: '0' }", ng-cloak)
     .col-md-4.col-sm-6.col-xs-12.masonry-brick(ng-repeat="tile in self.feed")
-        .tile
+        .tile(ng-if="tile.type=='news'")
             .main(ui-sref="article.id({ id : tile.id, url : tile.url, return : 'feed.all' })")
                 img.thumbnail(ng-src='{{ tile.headline_image_url }}')
                 a.headline {{tile.headline}}
@@ -12,6 +12,9 @@
 
             .footer
                 span {{ tile.created_at | relativeDate }}
+
+        .tile.adv(ng-if="tile.type=='adv'")
+            h2 advertisement
 
 .col-md-2.col-md-offset-5
     btn.btn.btn-default.btn-more(ng-click='self.loadFeed(self.feed.length/10)') MORE BUZZ

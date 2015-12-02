@@ -16,6 +16,15 @@ class FeedService {
             $http
                 .get(url)
                 .success(function (data) {
+                    data.forEach(function(el){
+                        el.type = 'news';
+                    });
+                    data.forEach(function(el, i){
+                        if ((i+1) % 5 == 0) {
+                            data.splice((i+1), 0, { type : 'adv' });
+                        }
+                    });
+                    console.log(data);
                     resolve(data);
                 })
                 .error(function (err) {

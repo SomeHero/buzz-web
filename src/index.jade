@@ -12,6 +12,11 @@ html(ng-app="buzz-web", ng-cloak)
     body(ng-class="$state.current.name|expandState")
         menu(ng-if="$state.current.name != 'article.id'")
 
+        .row
+            .col-md-8.col-md-offset-2.col-xs-10.col-xs-offset-1
+                .adv-banner
+                    h2 advertisement
+
         main.container.fading(ui-view)
 
         footer.footer-area

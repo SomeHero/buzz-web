@@ -13,9 +13,9 @@
     br
     p New Links Are Updated Every 10 minutes
 
-.row.feed(masonry, ng-if='self.Authentication.provider.isAuthenticated()', masonry-options="{ transitionDuration: '0.2s' }")
+.row.feed(masonry, ng-if='self.Authentication.provider.isAuthenticated()', masonry-options="{ transitionDuration: '0' }")
     .col-md-4.col-sm-6.col-xs-12.masonry-brick(ng-repeat="tile in self.feed")
-        .tile
+        .tile(ng-if="tile.type=='news'")
             .main(ui-sref="article.id({ id : tile.id, url : tile.url, return : 'feed.my' })")
                 img.thumbnail(ng-src='{{ tile.headline_image_url }}')
                 a.headline {{tile.headline}}
@@ -27,6 +27,8 @@
 
             .footer
                 span {{ tile.created_at | relativeDate }}
+        .tile.adv(ng-if="tile.type=='adv'")
+            h2 advertisement
 
 .col-md-2.col-md-offset-5(ng-if='self.Authentication.provider.isAuthenticated()')
     btn.btn.btn-default.btn-more(ng-click='self.loadFeed(self.feed.length/10, self.user.id)') MORE BUZZ
