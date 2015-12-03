@@ -1,13 +1,13 @@
 @import 'variables.less';
 
 /* ==========================================================================
-   X-Small screens
+   X-Small screens from 480px
    ========================================================================== */
 @media only screen and (max-width: @screen-xs) {
 }
 
 /* ==========================================================================
-   Small screens
+   Small screens from 768px
    ========================================================================== */
 @media only screen and (max-width: @screen-sm) {
   menu {
@@ -35,6 +35,12 @@
     }
   }
 
+  body.feed {
+    .masonry-brick {
+      padding: 0;
+    }
+  }
+
   body.article .container {
     .sidebar {
       width: 100%;
@@ -48,13 +54,13 @@
 }
 
 /* ==========================================================================
-   Medium screens
+   Medium screens from 992px
    ========================================================================== */
 @media only screen and (max-width: @screen-md) {
 }
 
 /* ==========================================================================
-   Large screens
+   Large screens from 1200px
    ========================================================================== */
 @media only screen and (max-width: @screen-lg) {
 }
