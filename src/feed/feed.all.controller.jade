@@ -10,7 +10,7 @@
                 .handle
                     p.bold {{ tile.influencer.twitter_username }}
                     p.color-red(href="") {{ tile.influencer.handle }}
-                    p {{ tile.original_tweet }}
+                    p.tweet {{ tile.original_tweet }}
 
             .footer
                 span {{ tile.created_at | relativeDate }}
