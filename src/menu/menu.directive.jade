@@ -19,9 +19,8 @@ nav.navbar.navbar-default.navbar-fixed-top
                     span {{ self.Authentication.provider.user.twitter_username }}
                     span.caret
 
-                a.dropdown-toggle(uib-dropdown-toggle, ng-if='!self.Authentication.provider.isAuthenticated()')
-                    i.glyphicon.glyphicon-user
-                    span.caret
+                a.dropdown-toggle.user-icon(uib-dropdown-toggle, ng-if='!self.Authentication.provider.isAuthenticated()')
+                    span.glyphicon.glyphicon-menu-hamburger
 
                 ul.uib-dropdown-menu(aria-labelledby='simple-dropdown')
                     li(ui-sref-active='active'): a(ui-sref="feed.all")
