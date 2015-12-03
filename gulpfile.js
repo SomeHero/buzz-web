@@ -21,14 +21,10 @@ var argv = require('yargs').argv,
 var env = argv.env || process.env.NODE_ENV || 'development';
 process.env.NODE_ENV = env;
 
-//
 //   Paths and configurations
-//
 var paths = {
     js : [
         'src/app.js',
-
-        // common
         'src/**/*.module.js',
         'src/**/*.js'
     ],
@@ -39,9 +35,11 @@ var paths = {
         'vendor/angular-bootstrap/ui-bootstrap-tpls.js',
         'vendor/angular-animate/angular-animate.js',
         'vendor/angular-cookies/angular-cookies.js',
+        'vendor/angular-loading-bar/build/loading-bar.js',
         'vendor/angular-relative-date/angular-relative-date.js',
         'vendor/angular-aside/dist/js/angular-aside.js',
         'vendor/angular-toastr/dist/angular-toastr.tpls.js',
+        'vendor/ngInfiniteScroll/build/ng-infinite-scroll.js',
         'vendor/jquery-bridget/jquery.bridget.js',
         'vendor/get-style-property/get-style-property.js',
         'vendor/get-size/get-size.js',
@@ -55,9 +53,7 @@ var paths = {
         'vendor/masonry/masonry.js',
         'vendor/imagesloaded/imagesloaded.js',
         'vendor/angular-masonry/angular-masonry.js',
-        'vendor/satellizer/satellizer.js',
-        'vendor/ngInfiniteScroll/build/ng-infinite-scroll.js',
-        'vendor/angular-loading-bar/build/loading-bar.js'
+        'vendor/satellizer/satellizer.js'
     ]
 };
 
@@ -118,7 +114,7 @@ gulp.task('js-libs', function() {
         .src(paths.libs)
         .pipe(sourcemaps.init())
         .pipe(concat('vendor.js'))
-        .pipe(gulpif(argv.minify, uglify()))
+        .pipe(uglify())
         .pipe(gulp.dest('dist/js/'));
 });
 

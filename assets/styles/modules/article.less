@@ -6,9 +6,7 @@ body.article {
     margin: 0;
   }
   .sidebar {
-    background-color: #fafafa;
-    box-shadow: 0 0 20px 0 #5e5e5e;
-    display: block;
+    box-shadow: 0 0 15px 0 #5e5e5e;
     z-index: 1000;
     position: fixed;
     left: 250px;
@@ -17,55 +15,39 @@ body.article {
     margin-left: -250px;
     overflow-y: auto;
     text-align: center;
-    .fa {
-      font-size: 90px;
-      margin: 15px 0;
-      color: #5e5e5e;
-      cursor: pointer;
-      text-decoration: none;
-      &.fa-times-circle, &.fa-external-link-square {
-        &:hover {
-          color: darken(#5e5e5e, 15%);
-        }
-      }
-      &.fa-twitter-square {
-        color: @twitter-color;
-        &:hover {
-          color: darken(@twitter-color, 15%)
-        }
-      }
-      &.fa-facebook-official {
-        color: @facebook-color;
-        &:hover {
-          color: darken(@facebook-color, 15%)
-        }
-      }
-      &.fa-envelope-square{
-        color: @primary-color;
-        &:hover {
-          color: darken(@primary-color, 15%)
-        }
-      }
-      &.fa-phone-square{
-        color: #00a859;
-        &:hover {
-          color: darken(#00a859, 10%)
-        }
-      }
-    }
-
     .logo {
       font-size: 16px;
-      bottom: 12px;
+      top: 12px;
       width: 100%;
       .buzz {
         padding: 0 5px;
-        margin-top: 1px;
-        border-radius: 3px;
+        border-radius: 7px;
         font-size: 12px;
       }
     }
 
+    .fa {
+      font-size: 90px;
+      margin-top: 90px;
+      color: #5e5e5e;
+      cursor: pointer;
+      text-decoration: none;
+      &.fa-times-circle {
+        &:hover { color: darken(#5e5e5e, 15%); }
+      }
+      &.fa-twitter-square {
+        color: @twitter-color;
+        &:hover { color: darken(@twitter-color, 15%) }
+      }
+      &.fa-facebook-official {
+        color: @facebook-color;
+        &:hover { color: darken(@facebook-color, 15%) }
+      }
+      &.fa-envelope-square{
+        color: @primary-color;
+        &:hover { color: darken(@primary-color, 15%) }
+      }
+    }
   }
 
   .frame {

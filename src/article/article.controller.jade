@@ -1,8 +1,12 @@
 .sidebar
-    i.fa.fa-times-circle(ui-sref='{{self.article.return}}', title='Close')
-    a.fa.fa-external-link-square(href='{{self.url}}', target="_blank", title='Open in new tab')
+    .logo.hidden-xs(ui-sref='front')
+        span GET
+            span.color-red POLITICS
+        .buzz
+            | .buzz
 
-    #fb-root
+    i.fa.fa-times-circle(ui-sref='{{self.article.return}}', title='Close')
+
     script.
         (function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
@@ -12,34 +16,13 @@
             js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=976177749107330";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
-
-    a.fa.fa-facebook-official(href='http://www.facebook.com/share.php?u=http://get-politics.herokuapp.com/{{self.location.$$url}}&title=GET-POLITICS',
+    a.fa.fa-facebook-official(href='http://www.facebook.com/share.php?u=http://getpolitics.buzz{{self.location.$$url}}&title=GET-POLITICS',
                               onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;")
 
-    script.
-        window.twttr = (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0],
-                    t = window.twttr || {};
-            if (d.getElementById(id)) return t;
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "https://platform.twitter.com/widgets.js";
-            fjs.parentNode.insertBefore(js, fjs);
-            t._e = [];
-            t.ready = function(f) {
-                t._e.push(f);
-            };
-            return t;
-        }(document, "script", "twitter-wjs"));
-    a.fa.fa-twitter-square(ng-href='https://twitter.com/intent/tweet?text={{self.location.$$url}}')
+    a.fa.fa-twitter-square(ng-href='https://twitter.com/intent/tweet?text=http://getpolitics.buzz{{self.location.$$url}}',
+                           onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;")
 
     i.fa.fa-envelope-square(ng-click='')
-    i.fa.fa-phone-square(ng-click='')
 
-    .logo.hidden-xs(ui-sref='front')
-        span GET
-            span.color-red POLITICS
-        .buzz
-            | .buzz
 .frame
     iframe(src="{{self.url}}", resize)

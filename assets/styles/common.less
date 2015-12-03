@@ -89,11 +89,16 @@ textarea {
 }
 #loading-bar-spinner {
   top: 95px;
+  .spinner-icon {
+    border-top-color: @primary-color;
+    border-left-color: @primary-color;
+  }
 }
-#loading-bar-spinner .spinner-icon {
-  border-top-color: @primary-color;
-  border-left-color: @primary-color;
+body.article {
+  #loading-bar .bar { top: 0; }
+  #loading-bar-spinner { top: 10px; }
 }
+
 /* ==========================================================================
    Logo
    ========================================================================== */
@@ -145,19 +150,29 @@ textarea {
 }
 
 /* ==========================================================================
-   Adv
+   Adv blocks
    ========================================================================== */
 .adv-row {
   margin: 0;
   .col-md-8, .col-xs-12 {
     padding: 0;
+    .adv-banner {
+      height: 90px;
+      text-align: center;
+      padding: 7px;
+      background-color: #FF99D0;
+      margin-bottom: 20px;
+      color: #fff;
+    }
   }
 }
-.adv-banner {
-  height: 90px;
+
+.tile.adv {
   text-align: center;
-  padding: 7px;
-  background-color: #5e5e5e;
-  margin-bottom: 20px;
+  background-color: #FF99D0 !important;
   color: #fff;
+  h2 {
+    padding: 40px 0;
+    margin: 0;
+  }
 }
