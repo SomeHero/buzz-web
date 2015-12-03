@@ -55,7 +55,9 @@ var paths = {
         'vendor/masonry/masonry.js',
         'vendor/imagesloaded/imagesloaded.js',
         'vendor/angular-masonry/angular-masonry.js',
-        'vendor/satellizer/satellizer.js'
+        'vendor/satellizer/satellizer.js',
+        'vendor/ngInfiniteScroll/build/ng-infinite-scroll.js',
+        'vendor/angular-loading-bar/build/loading-bar.js'
     ]
 };
 

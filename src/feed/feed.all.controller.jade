@@ -1,4 +1,4 @@
-.row.feed(masonry="{ transitionDuration: '0.1s' }", ng-cloak)
+.row.feed(masonry="{ transitionDuration: '0.1s' }", ng-cloak, infinite-scroll="self.loadFeed(self.feed.length/10)")
     .col-md-4.col-sm-6.col-xs-12.masonry-brick(ng-repeat="tile in self.feed")
         .tile(ng-if="!tile.type")
             .main(ui-sref="article.id({ id : tile.id, url : tile.url, return : 'feed.all' })")
@@ -17,5 +17,5 @@
         .tile.adv(ng-if="tile.type=='adv'")
             h2 advertisement
 
-.col-md-2.col-md-offset-5
-    btn.btn.btn-default.btn-more(ng-click='self.loadFeed(self.feed.length/10)') MORE BUZZ
+//.col-md-2.col-md-offset-5
+//    btn.btn.btn-default.btn-more(ng-click='self.loadFeed(self.feed.length/10)') MORE BUZZ

@@ -5,13 +5,15 @@ angular
         'ngAside',
         'toastr',
         'relativeDate',
-        'wu.masonry'
+        'wu.masonry',
+        'infinite-scroll',
+        'angular-loading-bar'
     ])
     .config(configure)
     .run(run);
 
-configure.$inject = ['$locationProvider', '$stateProvider', 'toastrConfig'];
-function configure($locationProvider, $stateProvider, toastrConfig) {
+configure.$inject = ['$locationProvider', '$stateProvider', 'toastrConfig', 'cfpLoadingBarProvider'];
+function configure($locationProvider, $stateProvider, toastrConfig, cfpLoadingBarProvider) {
     $locationProvider.html5Mode({
         enabled : true,
         requireBase : true,
@@ -51,6 +53,8 @@ function configure($locationProvider, $stateProvider, toastrConfig) {
         target: 'main',
         tapToDismiss: true
     });
+
+    cfpLoadingBarProvider.includeSpinner = true;
 }
 
 run.$inject = ['$state', '$rootScope'];
