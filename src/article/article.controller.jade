@@ -15,7 +15,7 @@
             if (d.getElementById(id)) return;
             js = d.createElement(s);
             js.id = id;
-            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=976177749107330";
+            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId="+CONFIG.fb_id;
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
     a.fa.fa-facebook-official(href='http://www.facebook.com/share.php?u=http://getpolitics.buzz{{self.location.$$url}}&title=GET-POLITICS',
