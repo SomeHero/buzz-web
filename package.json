@@ -40,11 +40,8 @@
     "serve-static": "*",
     "underscore": "*",
     "yargs": "*",
-    "colors": "^1.1.2",
-    "cors": "^2.7.1",
-    "moment": "^2.10.6",
-    "morgan": "^1.6.1",
-    "request": "^2.65.0"
+    "colors": "*",
+    "request": "*"
   },
   "license": "MIT",
   "engines": {

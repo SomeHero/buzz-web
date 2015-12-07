@@ -11,9 +11,6 @@ var qs = require('querystring');
 var async = require('async');
 var bodyParser = require('body-parser');
 var colors = require('colors');
-var cors = require('cors');
-var logger = require('morgan');
-var moment = require('moment');
 var request = require('request');
 
 var config = require('./config');
@@ -21,12 +18,10 @@ var config = require('./config');
 server.set('port', (process.env.PORT || 3000));
 server.set('x-powered-by', false);
 
-server.use(cors());
-server.use(logger('dev'));
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use(function(req, res, next){
-    debug(req.url);
+    debug(`[${req.method}] ${req.url}`);
     next();
 });
 
@@ -45,7 +40,7 @@ server.get([
 });
 
 server.use(function(req, res, next) {
-    debug(`unresolved url: [${req.method}] ${req.headers.host}${req.url}`.red);
+    debug(`UNRESOLVED: [${req.method}] ${req.headers.host}${req.url}`.red);
     next();
 });
 

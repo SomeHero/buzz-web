@@ -57,7 +57,14 @@ function configure($locationProvider, $stateProvider, toastrConfig, cfpLoadingBa
     cfpLoadingBarProvider.includeSpinner = true;
 }
 
-run.$inject = ['$state', '$rootScope'];
-function run($state, $root) {
+run.$inject = ['$state', '$rootScope', '$location', '$window'];
+function run($state, $root, $location, $window) {
+    $root.$on('$stateChangeSuccess',
+            function(event){
+                if (!$window.ga)
+                    return;
+                $window.ga('send', 'pageview', { page: $location.path() });
+            });
+
     $root.$state = $state;
 }
