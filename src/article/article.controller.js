@@ -9,5 +9,7 @@ function ArticleController(article, $sce, $location) {
     self.article = article;
     self.location = $location;
 
+    self.article.headline = self.article.headline.replace(/ /g, '+').replace('|', '');
+    
     self.url = $sce.trustAsResourceUrl(article.url.replace(new RegExp('%2F','g'),'/'));
 }

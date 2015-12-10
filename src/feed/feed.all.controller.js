@@ -11,6 +11,7 @@ function FeedAllController(FeedService, toastr) {
 
     self.loadFeed = (page) => {
         page = Math.ceil(page);
+        if (page < 1) { page = 1; }
 
         FeedService
             .getFeed(page)

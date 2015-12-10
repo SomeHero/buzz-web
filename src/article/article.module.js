@@ -13,7 +13,7 @@ function configure($stateProvider) {
             template : '<div ui-view class="fading"></div>'
         })
         .state('article.id', {
-            url : '/:id?url?return',
+            url : '/:id?url?return?headline',
             templateUrl : 'article/article.controller.html',
             controller : 'ArticleController',
             controllerAs : 'self',

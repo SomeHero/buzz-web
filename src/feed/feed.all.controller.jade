@@ -1,7 +1,11 @@
-.row.feed(masonry="{ transitionDuration: '0.1s' }", infinite-scroll="self.loadFeed(self.feed.length/10)")
-    .col-md-4.col-sm-6.col-xs-12.masonry-brick(ng-repeat="tile in self.feed")
+.row.feed(masonry="{ transitionDuration: '0.1s' }", infinite-scroll="self.loadFeed(self.feed.length/10)", infinite-scroll-distance='0')
+    .col-md-4.col-sm-6.col-xs-12.masonry-brick(ng-repeat="tile in self.feed",
+                                               ui-sref = "article.id({ id : tile.id, " +
+                                                         "url : tile.url, " +
+                                                         "return : 'feed.all'," +
+                                                         "headline : tile.headline })")
         .tile(ng-if="!tile.type")
-            .main(ui-sref="article.id({ id : tile.id, url : tile.url, return : 'feed.all' })")
+            .main
                 img.thumbnail(ng-src='{{ tile.headline_image_url }}', set-size, height='{{tile.headline_image_height}}',
                                                                                 width='{{tile.headline_image_width}}')
                 a.headline {{tile.headline}}

@@ -9,7 +9,7 @@ class FeedService {
 
     getFeed(page, user_id) {
         var url;
-        user_id == undefined ? url = `${CONFIG.api_url}/api/v1/twurls?page_number=${page ? page : 1}`
+        user_id == undefined ? url = `${CONFIG.api_url}/api/v1/feeds/10/twurls?page_number=${page ? page : 1}`
                              : url = `${CONFIG.api_url}/api/v1/users/${user_id}/feeds?page_number=${page ? page : 1}`;
 
         return $q(function (resolve, reject) {
