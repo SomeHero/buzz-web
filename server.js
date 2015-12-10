@@ -8,7 +8,6 @@ var express = require('express');
 var server = express();
 var path = require('path');
 var qs = require('querystring');
-var async = require('async');
 var bodyParser = require('body-parser');
 var colors = require('colors');
 var request = require('request');

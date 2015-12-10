@@ -5,7 +5,7 @@ angular
         'ngAside',
         'toastr',
         'relativeDate',
-        'wu.masonry',
+        'akoenig.deckgrid',
         'infinite-scroll',
         'angular-loading-bar',
         '720kb.socialshare'

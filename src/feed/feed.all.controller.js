@@ -18,12 +18,11 @@ function FeedAllController(FeedService, toastr) {
             .then(function(result) {
                 page == 1 ? self.feed = result
                           : self.feed = self.feed.concat(result);
+                console.log(self.feed)
             })
             .catch(function(err) {
                 console.error(err);
                 toastr.error(err, 'Error');
             });
     };
-
-    self.loadFeed(1);
 }

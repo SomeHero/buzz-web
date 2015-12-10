@@ -1,4 +1,4 @@
-.row.connect(ng-if='!self.Authentication.provider.isAuthenticated()')
+.connect.clearfix(ng-if='!self.Authentication.provider.isAuthenticated()')
     h1
         | MY
         span.color-red FEED
@@ -13,26 +13,23 @@
     br
     p New Links Are Updated Every 10 minutes
 
-.row.feed(masonry="{ transitionDuration: '0.1s' }", infinite-scroll="self.loadFeed(self.feed.length/10)",
-          ng-if='self.Authentication.provider.isAuthenticated()')
-    .col-md-4.col-sm-6.col-xs-12.masonry-brick(ng-repeat="tile in self.feed",
-                                               ui-sref="article.id({ id : tile.id, " +
-                                                       "url : tile.url, " +
-                                                       "return : 'feed.my'," +
-                                                       "headline : tile.headline })")
-        .tile(ng-if="!tile.type")
-            .main
-                img.thumbnail(ng-src='{{ tile.headline_image_url }}', set-size, height='{{tile.headline_image_height}}',
-                                                                                width='{{tile.headline_image_width}}')
-                a.headline {{tile.headline}}
-            .influencer
-                img.thumbnail(ng-src='{{ tile.influencer.profile_image_url }}')
-                .handle
-                    p.bold {{ tile.influencer.twitter_username }}
-                    p.color-red(href="") {{ tile.influencer.handle }}
-                    p.tweet {{ tile.original_tweet }}
+.clearfix(infinite-scroll="self.loadFeed(self.feed.length/10, self.user.id)", ng-if='self.Authentication.provider.isAuthenticated()')
+    .deckgrid(deckgrid, source='self.feed')
+        div
+            .tile(ng-show="!card.type", ui-sref="article.id({ id : tile.id, url : tile.url, " +
+                                                             "return : 'feed.my', headline : tile.headline })")
+                .main
+                    img.thumbnail(ng-src='{{ card.headline_image_url }}', set-size, height='{{card.headline_image_height}}',
+                    width='{{card.headline_image_width}}')
+                    a.headline {{card.headline}}
+                .influencer
+                    img.thumbnail(ng-src='{{ card.influencer.profile_image_url }}')
+                    .handle
+                        p.bold {{ card.influencer.twitter_username }}
+                        p.color-red(href="") {{ card.influencer.handle }}
+                        p.tweet {{ card.original_tweet }}
+                .footer
+                    span {{ card.created_at | relativeDate }}
 
-            .footer
-                span {{ tile.created_at | relativeDate }}
-        .tile.adv(ng-if="tile.type=='adv'")
-            h2 advertisement
+            .tile.adv(ng-show="card.type=='adv'")
+                h2 advertisement
