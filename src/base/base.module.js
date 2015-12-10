@@ -7,7 +7,8 @@ angular
         'relativeDate',
         'wu.masonry',
         'infinite-scroll',
-        'angular-loading-bar'
+        'angular-loading-bar',
+        '720kb.socialshare'
     ])
     .config(configure)
     .run(run);

@@ -25,6 +25,7 @@
     "font-awesome": "*",
     "jquery": "*",
     "moment": "*",
-    "satellizer": "~0.13.1"
+    "satellizer": "~0.13.1",
+    "angular-socialshare": "angularjs-socialshare#~0.1.19"
   }
 }

@@ -7,24 +7,26 @@
 
     i.fa.fa-times-circle(ui-sref='{{self.article.return}}', title='Close')
 
-    i.fa.fa-home(ui-sref='feed.all', title='Home')
+    i.fa.fa-home(ui-sref='feed.all', title='Back to Home')
 
-    script.
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId="+CONFIG.fb_id;
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    a.fa.fa-facebook-official(href='http://www.facebook.com/share.php?u=http://getpolitics.buzz{{self.location.$$url}}&title=GET-POLITICS&summary={{self.article.headline}}',
-                              onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;window.ga('send', 'event', 'Social', 'share', 'Facebook');")
+    btn.fa.fa-facebook-official(socialshare,
+                                socialshare-provider="facebook",
+                                socialshare-via="{{CONFIG.fb_id}}",
+                                socialshare-text="{{self.article.headline}}",
+                                socialshare-redirect-uri="http://getpolitics.buzz",
+                                socialshare-url="http://getpolitics.buzz{{self.location.$$url}}", title='Share with facebook',
+                                onclick="window.ga('send', 'event', 'Social', 'share', 'Facebook')")
 
-    a.fa.fa-twitter-square(href='https://twitter.com/intent/tweet?text={{self.article.headline}}+http://getpolitics.buzz{{self.location.$$url}}',
-                           onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;window.ga('send', 'event', 'Social', 'share', 'Twitter');")
 
-    i.fa.fa-envelope-square(ng-click='')
+    btn.fa.fa-twitter-square(socialshare
+                             socialshare-provider="twitter"
+                             socialshare-hashtags="getpolitics, twurl"
+                             socialshare-text="{{self.article.headline}}"
+                             socialshare-url="http://getpolitics.buzz{{self.location.$$url}}", title='Share with twitter',
+                             onclick="window.ga('send', 'event', 'Social', 'share', 'Twitter')")
+
+    a.fa.fa-envelope-square(href="mailto:?subject={{self.article.headline}}+http://getpolitics.buzz{{self.location.$$url}}", title='Send email',
+                            onclick="window.ga('send', 'event', 'Social', 'share', 'Email')")
 
 .frame
     iframe(src="{{self.url}}", resize)

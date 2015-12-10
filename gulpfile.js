@@ -39,6 +39,7 @@ var paths = {
         'vendor/angular-relative-date/angular-relative-date.js',
         'vendor/angular-aside/dist/js/angular-aside.js',
         'vendor/angular-toastr/dist/angular-toastr.tpls.js',
+        'vendor/angular-socialshare/dist/angular-socialshare.min.js',
         'vendor/ngInfiniteScroll/build/ng-infinite-scroll.js',
         'vendor/jquery-bridget/jquery.bridget.js',
         'vendor/get-style-property/get-style-property.js',
