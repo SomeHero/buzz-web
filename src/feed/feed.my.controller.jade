@@ -14,22 +14,7 @@
     p New Links Are Updated Every 10 minutes
 
 .clearfix(infinite-scroll="self.loadFeed(self.feed.length/10, self.user.id)", ng-if='self.Authentication.provider.isAuthenticated()')
-    .deckgrid(deckgrid, source='self.feed')
-        div
-            .tile(ng-show="!card.type", ui-sref="article.id({ id : tile.id, url : tile.url, " +
-                                                             "return : 'feed.my', headline : tile.headline })")
-                .main
-                    img.thumbnail(ng-src='{{ card.headline_image_url }}', set-size, height='{{card.headline_image_height}}',
-                    width='{{card.headline_image_width}}')
-                    a.headline {{card.headline}}
-                .influencer
-                    img.thumbnail(ng-src='{{ card.influencer.profile_image_url }}')
-                    .handle
-                        p.bold {{ card.influencer.twitter_username }}
-                        p.color-red(href="") {{ card.influencer.handle }}
-                        p.tweet {{ card.original_tweet }}
-                .footer
-                    span {{ card.created_at | relativeDate }}
+    .deckgrid(deckgrid, source='self.feed', cardTemplate="/feed/tile.html")
 
-            .tile.adv(ng-show="card.type=='adv'")
-                h2 advertisement
+div(loading).spinner
+    i.fa.fa-spinner.fa-spin

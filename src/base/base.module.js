@@ -55,7 +55,7 @@ function configure($locationProvider, $stateProvider, toastrConfig, cfpLoadingBa
         tapToDismiss: true
     });
 
-    cfpLoadingBarProvider.includeSpinner = true;
+    cfpLoadingBarProvider.includeSpinner = false;
 }
 
 run.$inject = ['$state', '$rootScope', '$location', '$window'];

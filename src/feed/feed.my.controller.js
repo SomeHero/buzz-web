@@ -2,9 +2,9 @@ angular
     .module('buzz-web.feed')
     .controller('FeedMyController', FeedMyController);
 
-FeedMyController.$inject = ['FeedService', '$auth', 'toastr'];
+FeedMyController.$inject = ['FeedService', '$auth', 'toastr', '$state'];
 
-function FeedMyController(FeedService, $auth, toastr) {
+function FeedMyController(FeedService, $auth, toastr, $state) {
     var self = this;
     this.Authentication = $auth;
     this.user = self.Authentication.provider.user;
@@ -14,7 +14,7 @@ function FeedMyController(FeedService, $auth, toastr) {
     self.loadFeed = (page, user_id) => {
         page = Math.ceil(page);
         FeedService
-            .getFeed(page, user_id)
+            .getFeed(page, $state.current.name, user_id)
             .then(function(result) {
                 page == 1 ? self.feed = result
                           : self.feed = self.feed.concat(result);
