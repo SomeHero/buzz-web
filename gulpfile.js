@@ -36,8 +36,6 @@ var paths = {
         'vendor/angular-animate/angular-animate.js',
         'vendor/angular-loading-bar/build/loading-bar.js',
         'vendor/angular-relative-date/angular-relative-date.js',
-        'vendor/angular-aside/dist/js/angular-aside.js',
-        'vendor/angular-toastr/dist/angular-toastr.tpls.js',
         'vendor/angular-socialshare/dist/angular-socialshare.min.js',
         'vendor/ngInfiniteScroll/build/ng-infinite-scroll.js',
         'vendor/satellizer/satellizer.js',

@@ -2,9 +2,9 @@ angular
     .module('buzz-web.feed')
     .controller('FeedAllController', FeedAllController);
 
-FeedAllController.$inject = ['FeedService', 'toastr', '$state'];
+FeedAllController.$inject = ['FeedService'];
 
-function FeedAllController(FeedService, toastr, $state) {
+function FeedAllController(FeedService) {
     var self = this;
 
     this.feed = [];
@@ -20,7 +20,6 @@ function FeedAllController(FeedService, toastr, $state) {
             })
             .catch(function(err) {
                 console.error(err);
-                toastr.error(err, 'Error');
             });
     };
 

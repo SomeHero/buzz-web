@@ -10,9 +10,9 @@ function MenuDirective() {
     }
 }
 
-MenuDirectiveController.$inject = ['$auth', '$aside', 'toastr'];
+MenuDirectiveController.$inject = ['$auth', '$aside'];
 
-function MenuDirectiveController($auth, $aside, toastr) {
+function MenuDirectiveController($auth, $aside) {
     var self = this;
     this.Authentication = $auth;
     this.user = self.Authentication.provider.user;
@@ -20,11 +20,10 @@ function MenuDirectiveController($auth, $aside, toastr) {
     this.logout = function () {
         self.Authentication.provider.logout()
             .then(function() {
-                toastr.warning('Logged out!', 'Success');
+                console.log('Logged out');
             })
             .catch(function(err) {
                 console.error(err);
-                toastr.error(err, 'Error');
             });
     };
 
@@ -51,11 +50,10 @@ function MenuDirectiveController($auth, $aside, toastr) {
                 $scope.logout = function () {
                     $scope.Authentication.provider.logout()
                         .then(function() {
-                            toastr.warning('Logged out!', 'Success');
+                            console.log('Logged out');
                         })
                         .catch(function(err) {
                             console.error(err);
-                            toastr.error(err, 'Error');
                         });
                 };
 
