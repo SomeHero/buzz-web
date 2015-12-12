@@ -27,7 +27,9 @@ function FeedMyController(FeedService, $auth, toastr, $state) {
             });
     };
 
-    self.loadFeed(self.user.id);
+    if (self.Authentication.provider.isAuthenticated()) {
+        self.loadFeed(self.user.id);
+    }
 
     self.authenticate = (provider) => {
         $auth.authenticate(provider)
