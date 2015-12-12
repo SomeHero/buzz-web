@@ -9,15 +9,15 @@ html(ng-app="buzz-web", ng-cloak)
         link(rel="stylesheet", href="/css/bootstrap.css", type="text/css")
         link(rel="stylesheet", href="/css/styles.css", type="text/css")
         link(rel="icon", type="image/png", href="/images/favicon.ico")
-        script(async, src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js")
+        script(async, src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')
 
     body(ng-class="$state.current.name|expandState")
         menu(ng-if="$state.current.name != 'article.id'")
 
         .row.adv-row(ng-if="$state.current.name != 'article.id'")
-            .col-md-8.col-md-offset-2.col-xs-12
+            .col-md-8.col-md-offset-2.col-xs-12.adv-banner
                 .adv-banner
-                    div(data-google-ad-sense)
+                    ins.adsbygoogle(style='display:inline-block;width:728px;height:90px', data-ad-client='ca-pub-5169062573744113', data-ad-slot='9448774384')
 
         main.container.fading(ui-view)
 
@@ -25,5 +25,8 @@ html(ng-app="buzz-web", ng-cloak)
 
         script(type="text/javascript").
             var CONFIG = !{ JSON.stringify(config) };
+
+        script.
+            (adsbygoogle = window.adsbygoogle || []).push({});
         script(type='text/javascript', src='/js/vendor.js')
         script(type='text/javascript', src='/js/all.js')

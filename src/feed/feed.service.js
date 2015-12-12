@@ -15,12 +15,12 @@ class FeedService {
             $http
                 .get(url)
                 .success(function (data) {
-                    data.forEach(function(el, i){
-                        el.returnTo = state;
-                        if ((i+1) % 10 == 0 && page == 1) {
-                            data.splice((i-1), 0, { type : 'adv' });
-                        }
-                    });
+                    //data.forEach(function(el, i){
+                    //    el.returnTo = state;
+                    //    if ((i+1) % 10 == 0 && page == 1) {
+                    //        data.splice((i-1), 0, { type : 'adv' });
+                    //    }
+                    //});
                     resolve(data);
                 })
                 .error(function (err) {
