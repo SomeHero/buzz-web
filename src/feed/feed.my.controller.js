@@ -6,18 +6,20 @@ FeedMyController.$inject = ['FeedService', '$auth', 'toastr', '$state'];
 
 function FeedMyController(FeedService, $auth, toastr, $state) {
     var self = this;
+
     this.Authentication = $auth;
     this.user = self.Authentication.provider.user;
 
     this.feed = [];
+    this.currentPage = 1;
 
-    self.loadFeed = (page, user_id) => {
-        page = Math.ceil(page);
+    self.loadFeed = (user_id) => {
         FeedService
-            .getFeed(page, $state.current.name, user_id)
+            .getFeed(self.currentPage, user_id)
             .then(function(result) {
-                page == 1 ? self.feed = result
-                          : self.feed = self.feed.concat(result);
+                self.currentPage == 1 ? self.feed = result
+                                      : self.feed = self.feed.concat(result);
+                self.currentPage++;
             })
             .catch(function(err) {
                 console.error(err);
@@ -25,7 +27,9 @@ function FeedMyController(FeedService, $auth, toastr, $state) {
             });
     };
 
-    this.authenticate = (provider) => {
+    self.loadFeed(self.user.id);
+
+    self.authenticate = (provider) => {
         $auth.authenticate(provider)
             .then(function(result) {
                 var user = JSON.parse(result.data);

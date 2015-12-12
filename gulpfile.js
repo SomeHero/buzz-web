@@ -40,8 +40,22 @@ var paths = {
         'vendor/angular-toastr/dist/angular-toastr.tpls.js',
         'vendor/angular-socialshare/dist/angular-socialshare.min.js',
         'vendor/ngInfiniteScroll/build/ng-infinite-scroll.js',
-        'vendor/angular-deckgrid/angular-deckgrid.js',
-        'vendor/satellizer/satellizer.js'
+        'vendor/satellizer/satellizer.js',
+        // masonry
+        'vendor/jquery-bridget/jquery.bridget.js',
+        'vendor/get-style-property/get-style-property.js',
+        'vendor/get-size/get-size.js',
+        'vendor/eventEmitter/EventEmitter.js',
+        'vendor/eventie/eventie.js',
+        'vendor/doc-ready/doc-ready.js',
+        'vendor/matches-selector/matches-selector.js',
+        'vendor/fizzy-ui-utils/utils.js',
+        'vendor/outlayer/item.js',
+        'vendor/outlayer/outlayer.js',
+        'vendor/masonry/masonry.js',
+        'vendor/imagesloaded/imagesloaded.js',
+        'vendor/angular-masonry/angular-masonry.js'
+        // <-
     ]
 };
 

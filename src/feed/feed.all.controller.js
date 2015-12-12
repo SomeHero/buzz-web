@@ -8,20 +8,21 @@ function FeedAllController(FeedService, toastr, $state) {
     var self = this;
 
     this.feed = [];
+    this.currentPage = 1;
 
-    self.loadFeed = (page) => {
-        page = Math.ceil(page);
-        if (page < 1) { page = 1; }
-
+    self.loadFeed = () => {
         FeedService
-            .getFeed(page, $state.current.name)
+            .getFeed(self.currentPage)
             .then(function(result) {
-                page == 1 ? self.feed = result
-                          : self.feed = self.feed.concat(result);
+                self.currentPage == 1 ? self.feed = result
+                                      : self.feed = self.feed.concat(result);
+                self.currentPage++;
             })
             .catch(function(err) {
                 console.error(err);
                 toastr.error(err, 'Error');
             });
     };
+
+    self.loadFeed();
 }

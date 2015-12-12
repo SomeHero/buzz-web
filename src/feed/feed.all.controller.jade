@@ -1,5 +1,26 @@
-.clearfix(infinite-scroll="self.loadFeed(self.feed.length/10)")
-    .deckgrid(deckgrid, source='self.feed', cardTemplate="/feed/tile.html")
+.clearfix(infinite-scroll="self.loadFeed()", infinite-scroll-immediate-check='false')
+    .row.feed(masonry="{ transitionDuration: '0' }")
+        .col-md-4.col-sm-6.col-xs-12.masonry-brick(ng-repeat="tile in self.feed",
+                                                   ui-sref = "article.id({ id : tile.id, url : tile.url, " +
+                                                             "return : 'feed.all', headline : tile.headline })")
+            .tile(ng-if="!tile.type")
+                .main
+                    img.thumbnail(ng-src='{{ tile.headline_image_url }}',
+                                  set-size, height='{{tile.headline_image_height}}', width='{{tile.headline_image_width}}')
+                    a.headline {{tile.headline}}
+                .influencer
+                    img.thumbnail(ng-src='{{ tile.influencer.profile_image_url }}')
+                    .handle
+                        p.bold {{ tile.influencer.twitter_username }}
+                        p.color-red(href="") {{ tile.influencer.handle }}
+                        p.tweet {{ tile.original_tweet }}
 
-div(loading).spinner
-    i.fa.fa-spinner.fa-spin
+                .footer
+                    span {{ tile.created_at | relativeDate }}
+
+            .tile.adv(ng-if="tile.type=='adv'")
+                h4 Advertisement
+                div(data-google-ad-sense)
+
+    div(loading).spinner
+        i.fa.fa-spinner.fa-spin
