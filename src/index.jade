@@ -17,7 +17,15 @@ html(ng-app="buzz-web", ng-cloak)
         .row.adv-row(ng-if="$state.current.name != 'article.id'")
             .col-md-8.col-md-offset-2.col-xs-12.adv-banner
                 .adv-banner
-                    ins.adsbygoogle(style='display:inline-block;width:728px;height:90px', data-ad-client='ca-pub-5169062573744113', data-ad-slot='9448774384')
+                script(type='text/javascript').
+                  ( function() {
+                    if (window.CHITIKA === undefined) { window.CHITIKA = { 'units' : [] }; };
+                    var unit = {"calltype":"async[2]","publisher":"Getpolitics","width":550,"height":250,"sid":"Chitika Default"};
+                    var placement_id = window.CHITIKA.units.length;
+                    window.CHITIKA.units.push(unit);
+                    document.write('<div id="chitikaAdBlock-' + placement_id + '"></div>');
+                    }());
+                  script(type='text/javascript', src='//cdn.chitika.net/getads.js', async='')
 
         main.container.fading(ui-view)
 
