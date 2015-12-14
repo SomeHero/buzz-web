@@ -3,10 +3,11 @@ angular
         'ui.router',
         'ui.bootstrap',
         'relativeDate',
-        'wu.masonry',
+        //'wu.masonry',
         'infinite-scroll',
         'angular-loading-bar',
-        '720kb.socialshare'
+        '720kb.socialshare',
+        'angularGrid'
     ])
     .config(configure)
     .run(run);

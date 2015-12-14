@@ -15,7 +15,6 @@
     "angular-ui-router": "*",
     "angular-animate": "*",
     "angular-bootstrap": "*",
-    "angular-masonry": "*",
     "angular-relative-date": "*",
     "angular-socialshare": "angularjs-socialshare#~0.1.19",
     "angular-loading-bar": "*",
