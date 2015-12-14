@@ -4,22 +4,24 @@
    News styles
    ========================================================================== */
 body.feed {
-  main { padding: 0; }
-
-  .grid {
-    border: 1px solid #cccccc;
-    list-style: none;
-    background: #ffffff;
-    box-sizing: border-box;
-    -moz-box-sizing : border-box;
-    -webkit-transition: all 0.6s ease-out;
-    transition: all 0.6s ease-out;
+  main {
+    padding: 0;
+    .dynamic-grid {
+      display: block;
+      padding: 0;
+    }
+    .grid {
+      list-style: none;
+      box-sizing: border-box;
+      -webkit-transition: all 400ms ease;
+      transition: all 400ms ease;
+    }
   }
 
   .tile {
     background-color: #e5e5e5;
     box-shadow: 0 0 10px 1px #8c8c8c;
-    transition: easy-in 0.15s;
+    transition: easy-in 0.4s;
     font-family: varelaround-regular;
     cursor: pointer;
     .main {

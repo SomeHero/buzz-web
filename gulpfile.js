@@ -18,9 +18,6 @@ var argv = require('yargs').argv,
     sequence = require('gulp-sequence'),
     sourcemaps = require('gulp-sourcemaps');
 
-var env = argv.env || process.env.NODE_ENV || 'development';
-process.env.NODE_ENV = env;
-
 //   Paths and configurations
 var paths = {
     js : [

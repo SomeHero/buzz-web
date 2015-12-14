@@ -1,4 +1,4 @@
-.connect.clearfix(ng-if='!self.Authentication.provider.isAuthenticated()')
+.connect(ng-if='!self.Authentication.provider.isAuthenticated()')
     h1
         | MY
         span.color-red FEED
@@ -13,30 +13,28 @@
     br
     p New Links Are Updated Every 10 minutes
 
-.clearfix(ng-if='self.Authentication.provider.isAuthenticated()',
-          infinite-scroll="self.loadFeed(self.user.id)", infinite-scroll-immediate-check='false')
-    ul.dynamic-grid(angular-grid='self.feed')
-        li.grid(data-ng-repeat='tile in self.feed', ui-sref = "article.id({ id : tile.id, url : tile.url, " +
-                                                                            "return : 'feed.my', headline : tile.headline })")
-            .tile(ng-if="!tile.type")
-                .main
-                    img.thumbnail(ng-src='{{ tile.headline_image_url }}', data-actual-width = "{{tile.headline_image_width}}"
-                                                                          data-actual-height= "{{tile.headline_image_height}}")
-                    a.headline {{tile.headline}}
-                .influencer
-                    img.thumbnail(ng-src='{{ tile.influencer.profile_image_url }}')
-                    .handle
-                        p.bold {{ tile.influencer.twitter_username }}
-                        p.color-red(href="") {{ tile.influencer.handle }}
-                        p.tweet {{ tile.original_tweet }}
+ul.dynamic-grid.clearfix(angular-grid='self.feed', ng-if='self.Authentication.provider.isAuthenticated()',
+                infinite-scroll="self.loadFeed(self.user.id)", infinite-scroll-immediate-check='false')
+    li.grid(data-ng-repeat='tile in self.feed', ui-sref = "article.id({ id : tile.id, url : tile.url, " +
+                                                                        "return : 'feed.my', headline : tile.headline })")
+        .tile(ng-if="!tile.type")
+            .main
+                img.thumbnail(ng-src='{{ ::tile.headline_image_url }}', data-actual-width = "{{ ::tile.headline_image_width }}"
+                                                                        data-actual-height= "{{ ::tile.headline_image_height}}")
+                a.headline {{ ::tile.headline}}
+            .influencer
+                img.thumbnail(ng-src='{{ ::tile.influencer.profile_image_url }}')
+                .handle
+                    p.bold {{ ::tile.influencer.twitter_username }}
+                    p.color-red {{ ::tile.influencer.handle }}
+                    p.tweet {{ ::tile.original_tweet }}
 
-                .footer
-                    span {{ tile.created_at | relativeDate }}
+            .footer
+                span {{ ::tile.created_at | relativeDate }}
 
-            .tile.adv(ng-if="tile.type=='adv'")
-                h4 Advertisement
-                div(data-google-ad-sense)
-
+        .tile.adv(ng-if="tile.type=='adv'")
+            h4 Advertisement
+            div(data-google-ad-sense)
 
 div(loading).spinner
     i.fa.fa-spinner.fa-spin

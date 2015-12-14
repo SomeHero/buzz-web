@@ -3,17 +3,16 @@ angular
         'ui.router',
         'ui.bootstrap',
         'relativeDate',
-        //'wu.masonry',
+        'angularGrid',
         'infinite-scroll',
         'angular-loading-bar',
-        '720kb.socialshare',
-        'angularGrid'
+        '720kb.socialshare'
     ])
     .config(configure)
     .run(run);
 
-configure.$inject = ['$locationProvider', '$stateProvider', 'cfpLoadingBarProvider'];
-function configure($locationProvider, $stateProvider, cfpLoadingBarProvider) {
+configure.$inject = ['$locationProvider', '$stateProvider', 'cfpLoadingBarProvider', '$urlRouterProvider'];
+function configure($locationProvider, $stateProvider, cfpLoadingBarProvider, $urlRouterProvider) {
     $locationProvider.html5Mode({
         enabled : true,
         requireBase : true,
@@ -41,6 +40,8 @@ function configure($locationProvider, $stateProvider, cfpLoadingBarProvider) {
             url : '/500',
             template : '<h1>Internal error</h1>'
         });
+
+    $urlRouterProvider.otherwise('/feed/all');
 
     cfpLoadingBarProvider.includeSpinner = false;
 }
