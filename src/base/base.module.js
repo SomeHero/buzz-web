@@ -3,6 +3,7 @@ angular
         'ui.router',
         'ui.bootstrap',
         'relativeDate',
+        'ngAnimate',
         'angularGrid',
         'infinite-scroll',
         'angular-loading-bar',

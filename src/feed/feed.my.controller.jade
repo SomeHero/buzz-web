@@ -14,7 +14,7 @@
     p New Links Are Updated Every 10 minutes
 
 ul.dynamic-grid.clearfix(angular-grid='self.feed', ng-if='self.Authentication.provider.isAuthenticated()',
-                infinite-scroll="self.loadFeed(self.user.id)", infinite-scroll-immediate-check='false')
+                infinite-scroll="self.loadFeed(self.user.id)", infinite-scroll-immediate-check='false', refresh-on-img-load='false')
     li.grid(data-ng-repeat='tile in self.feed', ui-sref = "article.id({ id : tile.id, url : tile.url, " +
                                                                         "return : 'feed.my', headline : tile.headline })")
         .tile(ng-if="!tile.type")
