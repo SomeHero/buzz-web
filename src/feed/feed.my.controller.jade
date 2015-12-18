@@ -9,9 +9,7 @@
         i.fa.fa-twitter
         | Connect With Twitter
 
-    p Once You've Connected, Any links tweeted by the people you follow on twitter Will Appear Here for Easy Scanning and Sharing
-    br
-    p New Links Are Updated Every 10 minutes
+    p New Links Are Updated Every 10 Minutes
 
 ul.dynamic-grid.clearfix(angular-grid='self.feed', ng-if='self.Authentication.provider.isAuthenticated()',
                 infinite-scroll="self.loadFeed(self.user.id)", infinite-scroll-immediate-check='false', refresh-on-img-load='false')
