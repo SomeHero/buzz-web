@@ -7,7 +7,7 @@ nav.navbar.navbar-default.navbar-fixed-top
                 p People In {{self.siteTitle}}
             .navbar-brand.logo(ui-sref='front')
                 span GET
-                    span.color-red {{self.siteTitle}}
+                    span.color-red {{self.siteTitle | uppercase}}
                 br.hidden-xs
                 .buzz
                     | .buzz
