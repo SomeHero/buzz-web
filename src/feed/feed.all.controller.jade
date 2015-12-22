@@ -5,7 +5,9 @@ ul.dynamic-grid.clearfix(angular-grid='self.feed', infinite-scroll="self.loadFee
             .main
                 img.thumbnail(ng-src='{{ ::tile.headline_image_url }}', data-actual-width = "{{ ::tile.headline_image_width }}"
                                                                         data-actual-height= "{{ ::tile.headline_image_height}}")
-                a.headline {{ ::tile.headline}}
+                .content
+                  a.headline {{ ::tile.headline}}
+                  .description {{::tile.description}}
             .influencer
                 img.thumbnail(ng-src='{{ ::tile.influencer.profile_image_url }}')
                 .handle
