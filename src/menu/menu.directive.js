@@ -10,12 +10,13 @@ function MenuDirective() {
     }
 }
 
-MenuDirectiveController.$inject = ['$auth', '$aside'];
+MenuDirectiveController.$inject = ['$auth', '$aside', 'CONFIG'];
 
-function MenuDirectiveController($auth, $aside) {
+function MenuDirectiveController($auth, $aside, CONFIG) {
     var self = this;
     this.Authentication = $auth;
     this.user = self.Authentication.provider.user;
+    this.siteTitle = CONFIG.site_title;
 
     this.logout = function () {
         self.Authentication.provider.logout()

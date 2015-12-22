@@ -1,4 +1,5 @@
 var config = {
+    site_title : process.env.SITE_TITLE,
     api_url : process.env.API_URL,
     feed_id : process.env.FEED_ID,
     twitter_api_key : process.env.TWITTER_API_KEY,

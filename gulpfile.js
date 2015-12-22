@@ -51,6 +51,7 @@ gulp.task('jade', function() {
             locals : {
                 config : {
                     api_url : process.env.API_URL,
+                    site_title : process.env.SITE_TITLE,
                     feed_id : process.env.FEED_ID,
                     fb_id : process.env.FACEBOOK_APP_ID,
                     ga_id : process.env.GA_ID

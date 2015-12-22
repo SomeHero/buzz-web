@@ -4,10 +4,10 @@ nav.navbar.navbar-default.navbar-fixed-top
             .navbar-brand.tagline.hidden-xs
                 p The Latest
                 p Buzz From Real
-                p People In Politics
+                p People In {{self.siteTitle}}
             .navbar-brand.logo(ui-sref='front')
                 span GET
-                    span.color-red POLITICS
+                    span.color-red {{self.siteTitle}}
                 br.hidden-xs
                 .buzz
                     | .buzz
